@@ -1,0 +1,42 @@
+{
+  "-NsdnQhdfur2G6prLdrM": {
+    "firebaseKey": "-NsdnQhdfur2G6prLdrM",
+    "order_id": "-NsdeIa80u-wXnY2X0eU",
+    "payment_type": "cash",
+    "order_total": "7.26",
+    "tip_amount": "2.00",
+    "date": "1703330705000",
+    "order_type": "dine-in",
+    "uid": null
+  }, 
+   "-NsdnQhdfur2G6prLQMp": {
+    "firebaseKey": "-NsdnQhdfur2G6prLQMp",
+    "order_id": "-NsdeIa7XnauOdOob8G8",
+    "payment_type": "credit",
+    "order_total": "9.84",
+    "tip_amount": "3.00",
+    "date": "1706361905000",
+    "order_type": "call-in",
+    "uid": null
+  }, 
+   "-NsdnQhdfur2G6prLQAs": {
+    "firebaseKey": "-NsdnQhdfur2G6prLQAs",
+    "order_id": "-NskS5Car57SNsviPR63",
+    "payment_type": "mobile",
+    "order_total": "5.26",
+    "tip_amount": "1.00",
+    "date": "1708625994000",
+    "order_type": "call-in",
+    "uid": null
+  },
+  "-NsdnQhdfur2G6prLAV5": {
+    "firebaseKey": "-NsdnQhdfur2G6prLAV5",
+    "order_id": "-NsdeIa4UDNCKW2wlph7",
+    "payment_type": "mobile",
+    "order_total": "21.00",
+    "tip_amount": "1.97",
+    "date": "1709415735000",
+    "order_type": "dine-in",
+    "uid": null
+  }
+}
