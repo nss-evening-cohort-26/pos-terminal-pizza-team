@@ -1,0 +1,76 @@
+{
+  "-NsdeIa4UDNCKW2wlph7": {
+    "firebaseKey": "-NsdeIa4UDNCKW2wlph7",
+    "open": false,
+    "customer_name": "Harman Singh",
+    "customer_phone": "572-250-2867",
+    "customer_email": "hsingh0@house.gov",
+    "order_type": "dine-in",
+    "uid": "1DUcBaBVB4hjzDIr3g9Bg945GYC2"
+  },
+
+  "-NsdeIa574fPymx02_Be": {
+    "firebaseKey": "-NsdeIa574fPymx02_Be",
+    "open": true,
+    "customer_name": "Emmalynn Forlong",
+    "customer_phone": "893-257-3394",
+    "customer_email": "eforlong1@people.com.cn",
+    "order_type": "dine-in",
+    "uid": "1DUcBaBVB4hjzDIr3g9Bg945GYC2"
+  },
+  "-NsdeIa7XnauOdOob8G8": {
+    "firebaseKey": "-NsdeIa7XnauOdOob8G8",
+    "open": false,
+    "customer_name": "Hadrian Hallward", 
+    "customer_phone": "628-355-4410",
+    "customer_email": "hhallward2@dailymotion.com",
+    "order_type": "call-in",
+    "uid": "0C47yYhxJpgg1unWvvnYdi1Qn893"
+  },
+  "-NsdeIa80u-wXnY2X0eU": {
+    "firebaseKey": "-NsdeIa80u-wXnY2X0eU",
+    "open": false,
+    "customer_name": "Zandra Bickardike",
+    "customer_phone": "617-448-6574",
+    "customer_email": "zbickardike3@wiley.com",
+    "order_type": "dine-in",
+    "uid": "Wc0qtbsUx1SmDEQ7UX7LZAQCSeO2"
+  },
+  "-NskS5Car57SNsviPR63": {
+    "firebaseKey": "-NskS5Car57SNsviPR63",
+    "open": false,
+    "customer_name": "Lynda Cayle",
+    "customer_email": "lcayle0@ed.gov",
+    "customer_phone": "799-823-5586",
+    "order_type": "call-in",
+    "uid": "MOeFbnKz2rgLgh2M4PldNnmCe2d2"
+  },
+  "-NskS5CbtzFTDwkFPBAX": {
+    "firebaseKey": "-NskS5CbtzFTDwkFPBAX",
+    "open": true,
+    "customer_name": "Itch Nettleship",
+    "customer_email": "inettleship1@bravesites.com",
+    "customer_phone": "543-583-0559",
+    "order_type": "dine-in",
+    "uid": "0C47yYhxJpgg1unWvvnYdi1Qn893"
+  },
+  "-NskS5CcKbByy8YVhj-L": {
+    "firebaseKey": "-NskS5CcKbByy8YVhj-L",
+    "open": true,
+    "customer_name": "Daryn Jakubowicz",
+    "customer_email": "djakubowicz2@1und1.de",
+    "customer_phone": "448-970-7777",
+    "order_type": "dine-in",
+    "uid": "Wc0qtbsUx1SmDEQ7UX7LZAQCSeO2"
+  },
+  "-NskS5Cdu0mkMzxZb0_L": {
+    "firebaseKey": "-NskS5Cdu0mkMzxZb0_L",
+    "open": true,
+    "customer_name": "Tally Baskeyfied",
+    "customer_email": "tbaskeyfied3@dagondesign.com",
+    "customer_phone": "708-733-1745",
+    "order_type": "dine-in",
+    "uid": "MOeFbnKz2rgLgh2M4PldNnmCe2d2"
+  }
+}
+  
