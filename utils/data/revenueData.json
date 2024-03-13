@@ -7,7 +7,7 @@
     "tip_amount": "2.00",
     "date": "1703330705000",
     "order_type": "dine-in",
-    "uid": null
+    "uid": "Wc0qtbsUx1SmDEQ7UX7LZAQCSeO2"
   }, 
    "-NsdnQhdfur2G6prLQMp": {
     "firebaseKey": "-NsdnQhdfur2G6prLQMp",
@@ -17,7 +17,7 @@
     "tip_amount": "3.00",
     "date": "1706361905000",
     "order_type": "call-in",
-    "uid": null
+    "uid": "0C47yYhxJpgg1unWvvnYdi1Qn893"
   }, 
    "-NsdnQhdfur2G6prLQAs": {
     "firebaseKey": "-NsdnQhdfur2G6prLQAs",
@@ -27,7 +27,7 @@
     "tip_amount": "1.00",
     "date": "1708625994000",
     "order_type": "call-in",
-    "uid": null
+    "uid": "MOeFbnKz2rgLgh2M4PldNnmCe2d2"
   },
   "-NsdnQhdfur2G6prLAV5": {
     "firebaseKey": "-NsdnQhdfur2G6prLAV5",
@@ -37,6 +37,6 @@
     "tip_amount": "1.97",
     "date": "1709415735000",
     "order_type": "dine-in",
-    "uid": null
+    "uid": "1DUcBaBVB4hjzDIr3g9Bg945GYC2"
   }
 }

@@ -3,48 +3,48 @@
     "firebaseKey": "-Nsdi9TqIkplt-2Daptq",
     "name": "Cheese Pizza",
     "price": "19.03",
-    "uid": null
+    "uid": "1DUcBaBVB4hjzDIr3g9Bg945GYC2"
   },
   "-Nsdi9TrHb4PST617tvw": {
     "firebaseKey": "-Nsdi9TrHb4PST617tvw",
     "name": "Veggie Pizza",
     "price": "9.39",
-    "uid": null
+    "uid": "MOeFbnKz2rgLgh2M4PldNnmCe2d2"
   },
   "-Nsdi9TrHb4PST617tvx": {
     "firebaseKey": "-Nsdi9TrHb4PST617tvx",
     "name": "Funky Pizza",
     "price": "18.01",
-    "uid": null
+    "uid": "1DUcBaBVB4hjzDIr3g9Bg945GYC2"
   },
   "-Nsdi9TsCdZhnvYwlCW1": {
     "firebaseKey": "-Nsdi9TsCdZhnvYwlCW1",
     "name": "Hot Wangs",
     "price": "6.84",
-    "uid": null
+    "uid": "0C47yYhxJpgg1unWvvnYdi1Qn893"
   },
   "-Nsdi9TsCdZhnvYwlCW2": {
     "firebaseKey": "-Nsdi9TsCdZhnvYwlCW2",
     "name": "BBQ Wangs",
     "price": "5.26",
-    "uid": null
+    "uid": "Wc0qtbsUx1SmDEQ7UX7LZAQCSeO2"
   },
   "-Nsdi9TsCdZhnvYwlCW5": {
     "firebaseKey": "-Nsdi9TsCdZhnvYwlCW5",
     "name": "Naked Wangs",
     "price": "4.26",
-    "uid": null
+    "uid": "MOeFbnKz2rgLgh2M4PldNnmCe2d2"
   },
   "-Nsdi9TsCdZhnvYwlCW6": {
     "firebaseKey": "-Nsdi9TsCdZhnvYwlCW6",
     "name": "Nashville Hot Wangs",
     "price": "7.00",
-    "uid": null
+    "uid": "0C47yYhxJpgg1unWvvnYdi1Qn893"
   },
   "-Nsdi9TsCdZhnvYwlCW7": {
     "firebaseKey": "-Nsdi9TsCdZhnvYwlCW7",
     "name": "Drink",
     "price": "2.50",
-    "uid": null
+    "uid": "Wc0qtbsUx1SmDEQ7UX7LZAQCSeO2"
   }
 }
