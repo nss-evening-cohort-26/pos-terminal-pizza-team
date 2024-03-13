@@ -5,7 +5,7 @@ const homeScreen = () => {
   clearDom();
 
   const domString = `
-  <button id="view-order-btn">view order</button>
+  <button id="view-orders-btn">view order</button>
   <button id="create-order-btn">Create Order</button>
   <button id="view-revenue-btn">View Revenue</button>`;
 
