@@ -1,7 +1,8 @@
-const domEvents = () => {
+const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('view-revenue-btn')) {
       console.warn('view revenue btn pushed');
+      console.warn(uid);
     }
 
     if (e.target.id.includes('view-orders-btn')) {
