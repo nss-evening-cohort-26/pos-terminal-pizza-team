@@ -28,13 +28,7 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     }
   })
     .then((response) => response.json())
-    .then((data) => {
-      if (data) {
-        resolve(Object.values(data));
-      } else {
-        resolve([]);
-      }
-    })
+    .then(resolve)
     .catch(reject);
 });
 
