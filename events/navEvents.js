@@ -1,3 +1,5 @@
+import homeScreen from '../pages/homeScreen';
+
 const navEvents = (uid) => {
   document.querySelector('#view-orders').addEventListener('click', () => {
     console.warn('View orders clicked!');
@@ -9,7 +11,7 @@ const navEvents = (uid) => {
   });
 
   document.querySelector('#logo').addEventListener('click', () => {
-    console.warn('Logo clicked!');
+    homeScreen();
   });
 };
 

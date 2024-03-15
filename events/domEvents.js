@@ -9,9 +9,7 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('view-orders-btn')) {
-      console.warn('pushed view orders');
       getAllOrders(uid).then(viewOrders);
-      console.warn(getAllOrders(uid).then(viewOrders));
     }
 
     if (e.target.id.includes('create-order-btn')) {
