@@ -1,13 +1,15 @@
+import { getAllOrders } from '../api/orderData';
+import addOrderForm from '../components/forms/addOrderForm';
 import homeScreen from '../pages/homeScreen';
+import viewOrders from '../pages/viewOrders';
 
 const navEvents = (uid) => {
   document.querySelector('#view-orders').addEventListener('click', () => {
-    console.warn('View orders clicked!');
-    console.warn(uid);
+    getAllOrders(uid).then(viewOrders);
   });
 
   document.querySelector('#create-an-order').addEventListener('click', () => {
-    console.warn('Create order clicked!');
+    addOrderForm();
   });
 
   document.querySelector('#logo').addEventListener('click', () => {
