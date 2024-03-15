@@ -7,7 +7,7 @@ const getAllOrders = (uid) => new Promise((resolve, reject) => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
   })
     .then((response) => response.json())
     .then((data) => {
