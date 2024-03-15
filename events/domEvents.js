@@ -1,3 +1,6 @@
+import { getAllOrders } from '../api/orderData';
+import viewOrders from '../pages/viewOrders';
+
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('view-revenue-btn')) {
@@ -6,7 +9,7 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('view-orders-btn')) {
-      console.warn('pushed view orders');
+      getAllOrders(uid).then(viewOrders);
     }
 
     if (e.target.id.includes('create-order-btn')) {
