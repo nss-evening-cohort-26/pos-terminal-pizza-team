@@ -1,3 +1,4 @@
+import addOrderForm from '../components/forms/addOrderForm';
 import homeScreen from '../pages/homeScreen';
 
 const navEvents = (uid) => {
@@ -7,7 +8,7 @@ const navEvents = (uid) => {
   });
 
   document.querySelector('#create-an-order').addEventListener('click', () => {
-    console.warn('Create order clicked!');
+    addOrderForm();
   });
 
   document.querySelector('#logo').addEventListener('click', () => {

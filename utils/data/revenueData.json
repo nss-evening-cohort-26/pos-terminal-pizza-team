@@ -6,7 +6,7 @@
     "order_total": "7.26",
     "tip_amount": "2.00",
     "date": "1703330705000",
-    "order_type": "dine-in",
+    "order_type": "in-person",
     "uid": "Wc0qtbsUx1SmDEQ7UX7LZAQCSeO2"
   }, 
    "-NsdnQhdfur2G6prLQMp": {
@@ -16,7 +16,7 @@
     "order_total": "9.84",
     "tip_amount": "3.00",
     "date": "1706361905000",
-    "order_type": "call-in",
+    "order_type": "phone",
     "uid": "0C47yYhxJpgg1unWvvnYdi1Qn893"
   }, 
    "-NsdnQhdfur2G6prLQAs": {
@@ -26,7 +26,7 @@
     "order_total": "5.26",
     "tip_amount": "1.00",
     "date": "1708625994000",
-    "order_type": "call-in",
+    "order_type": "phone",
     "uid": "MOeFbnKz2rgLgh2M4PldNnmCe2d2"
   },
   "-NsdnQhdfur2G6prLAV5": {
@@ -36,7 +36,7 @@
     "order_total": "21.00",
     "tip_amount": "1.97",
     "date": "1709415735000",
-    "order_type": "dine-in",
+    "order_type": "in-person",
     "uid": "1DUcBaBVB4hjzDIr3g9Bg945GYC2"
   }
 }

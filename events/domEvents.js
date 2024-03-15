@@ -1,5 +1,6 @@
 import getOrderDetails from '../api/mergeCalls';
-import { getAllOrders } from '../api/orderData';
+import { getAllOrders, getSingleOrder } from '../api/orderData';
+import addOrderForm from '../components/forms/addOrderForm';
 import viewOrders from '../pages/viewOrders';
 
 const domEvents = (uid) => {
@@ -18,7 +19,8 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('edit-order-btn')) {
-      console.warn('edit order btn pushed');
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then(addOrderForm);
     }
 
     if (e.target.id.includes('delete-order-btn')) {
