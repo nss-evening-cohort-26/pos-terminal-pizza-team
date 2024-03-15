@@ -9,7 +9,7 @@ const homeScreen = () => {
   <button id="create-order-btn">Create Order</button>
   <button id="view-revenue-btn">View Revenue</button>`;
 
-  renderToDOM('#main-container', domString);
+  renderToDOM('#homescreen-buttons', domString);
 };
 
 export default homeScreen;
