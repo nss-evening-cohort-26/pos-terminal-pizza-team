@@ -15,7 +15,7 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('create-order-btn')) {
-      console.warn('create order btn pushed');
+      addOrderForm();
     }
 
     if (e.target.id.includes('edit-order-btn')) {
