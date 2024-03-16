@@ -1,6 +1,8 @@
+import { getAllItems } from '../api/itemsData';
 import { getAllOrders } from '../api/orderData';
 import addOrderForm from '../components/forms/addOrderForm';
 import homeScreen from '../pages/homeScreen';
+import viewItems from '../pages/menu';
 import viewOrders from '../pages/viewOrders';
 
 const navEvents = (uid) => {
@@ -14,6 +16,10 @@ const navEvents = (uid) => {
 
   document.querySelector('#logo').addEventListener('click', () => {
     homeScreen();
+  });
+
+  document.querySelector('#view-menu').addEventListener('click', () => {
+    getAllItems(uid).then(viewItems);
   });
 };
 

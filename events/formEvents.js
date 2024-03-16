@@ -42,16 +42,12 @@ const formEvents = (uid) => {
       });
     }
 
-    if (e.target.id.includes('create-item-btn')) {
-      console.warn('Item created!');
+    if (e.target.id.includes('edit-item')) {
+      console.warn('hey');
     }
 
     if (e.target.id.includes('update-item-btn')) {
       console.warn('Item updated!');
-    }
-
-    if (e.target.id.includes('create-order-item-btn')) {
-      console.warn('Order item created!');
     }
 
     if (e.target.id.includes('update-order-item-btn')) {
