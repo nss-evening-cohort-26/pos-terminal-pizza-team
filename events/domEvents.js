@@ -24,11 +24,13 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('delete-order-btn')) {
-      console.warn('delete order btn pushed');
-      const [, firebaseKey] = e.target.id.split('--');
-      deleteOrderAndOrderItems(firebaseKey).then(() => {
-        getAllOrders(uid).then(viewOrders);
-      });
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Are you sure you want to delete this order?')) {
+        const [, firebaseKey] = e.target.id.split('--');
+        deleteOrderAndOrderItems(firebaseKey).then(() => {
+          getAllOrders(uid).then(viewOrders);
+        });
+      }
     }
 
     if (e.target.id.includes('order-details-btn')) {
