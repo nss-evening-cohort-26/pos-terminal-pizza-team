@@ -1,6 +1,11 @@
+import { getAllItems } from '../api/itemsData';
 import { deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
 import { getAllOrders, getSingleOrder } from '../api/orderData';
+// import addItemForm from '../components/forms/addItemForm';
 import addOrderForm from '../components/forms/addOrderForm';
+// import addOrderItemForm from '../components/forms/addOrderItemForm';
+import viewItems from '../pages/menu';
+import viewOrderDetails from '../pages/orderDetails';
 import viewOrders from '../pages/viewOrders';
 
 const domEvents = (uid) => {
@@ -36,15 +41,16 @@ const domEvents = (uid) => {
     if (e.target.id.includes('order-details-btn')) {
       console.warn('order details btn pushed');
       const [, firebaseKey] = e.target.id.split('--');
-      getOrderDetails(firebaseKey).then(console.warn);
+      getOrderDetails(firebaseKey).then((obj) => viewOrderDetails(obj));
     }
 
     if (e.target.id.includes('add-order-item-btn')) {
-      console.warn('add order item btn pushed');
+      const [, firebaseKey] = e.target.id.split('--');
+      getAllItems(uid).then((items) => viewItems(items, firebaseKey));
     }
 
-    if (e.target.id.includes('edit-order-item-btn')) {
-      console.warn('edit order item btn pushed');
+    if (e.target.id.includes('create-order-item-btn')) {
+      console.warn('boop');
     }
 
     if (e.target.id.includes('delete-order-item-btn')) {
