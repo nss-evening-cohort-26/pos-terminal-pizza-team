@@ -25,9 +25,9 @@ const viewOrderDetails = (obj) => {
     </div>`;
   });
 
-  domString += `
-  <button id="add-order-item-btn" type="button" class="btn btn-primary">Add Item</button> 
-  <button id="go-to-payment-btn" type="button" class="btn btn-success">Go to Payment</button>`;
+  domString += '<button id="add-order-item-btn" type="button" class="btn btn-primary">Add Item</button>';
+
+  domString += obj.open ? '<button id="go-to-payment-btn" type="button" class="btn btn-success">Go to Payment</button>' : '';
 
   renderToDOM('#view', domString);
 };
