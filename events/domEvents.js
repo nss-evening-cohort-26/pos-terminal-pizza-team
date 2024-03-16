@@ -1,13 +1,12 @@
 import { getAllItems } from '../api/itemsData';
 import { deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
 import { getAllOrders, getSingleOrder } from '../api/orderData';
-// import addItemForm from '../components/forms/addItemForm';
 import addOrderForm from '../components/forms/addOrderForm';
-// import addOrderItemForm from '../components/forms/addOrderItemForm';
 import viewItems from '../pages/menu';
 import viewOrderDetails from '../pages/orderDetails';
 import closeOrderForm from '../components/forms/closeOrderForm';
 import viewOrders from '../pages/viewOrders';
+import { createOrderItem, updateOrderItem } from '../api/orderItemsData';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -51,7 +50,17 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('create-order-item-btn')) {
-      console.warn('boop');
+      const [, itemId, orderId] = e.target.id.split('..');
+      const payload = {
+        item_id: itemId,
+        order_id: orderId
+      };
+      createOrderItem(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateOrderItem(patchPayload).then(() => {
+          getOrderDetails(orderId).then(viewOrderDetails);
+        });
+      });
     }
 
     if (e.target.id.includes('delete-order-item-btn')) {

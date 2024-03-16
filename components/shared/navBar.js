@@ -18,6 +18,9 @@ const navBar = () => {
             <li class="nav-item">
               <a class="nav-link" href="#" id="create-an-order">Create an Order</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="view-menu">Menu</a>
+            </li>
             <li>
             <input
               class="form-control"
