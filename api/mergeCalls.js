@@ -1,7 +1,7 @@
 import { deleteOrder, getSingleOrder } from './orderData';
 import { deleteOrderItem, getAllOrderItems } from './orderItemsData';
 import { getSingleItem } from './itemsData';
-// import { deleteRevenue, getRevenueByOrder } from './revenueData';
+import { deleteRevenue, getRevenueByOrder } from './revenueData';
 
 const getOrderDetails = async (orderFirebaseKey) => {
   console.warn(orderFirebaseKey);
@@ -23,21 +23,14 @@ const getOrderDetails = async (orderFirebaseKey) => {
 };
 
 const deleteOrderAndOrderItems = async (orderFirebaseKey) => {
-  // const order = await getSingleOrder(orderFirebaseKey);
+  const revenueNode = await getRevenueByOrder(orderFirebaseKey);
+  const deleteRevenueNodePromises = await revenueNode.map((revObj) => deleteRevenue(revObj.firebaseKey));
+  await Promise.all(deleteRevenueNodePromises);
   const orderItems = await getAllOrderItems(orderFirebaseKey);
   const deleteOrderItemPromises = await orderItems.map((oiObj) => deleteOrderItem(oiObj.firebaseKey));
+  await Promise.all(deleteOrderItemPromises);
 
-  await Promise.all(deleteOrderItemPromises).then(() => deleteOrder(orderFirebaseKey));
-  // const revenueNode = await getRevenueByOrder(orderFirebaseKey);
-  // const deleteRevenueNodePromises = await revenueNode.map((revObj) => deleteRevenue(revObj.orderFirebaseKey));
-
-  // await Promise.all(deleteOrderItemPromises).then(() => {
-  //   if (order.open) {
-  //     deleteOrder(orderFirebaseKey);
-  //   } else {
-  //     deleteRevenue(orderFirebaseKey).then(deleteOrder);
-  //   }
-  // });
+  await deleteOrder(orderFirebaseKey);
 };
 
 export { getOrderDetails, deleteOrderAndOrderItems };
