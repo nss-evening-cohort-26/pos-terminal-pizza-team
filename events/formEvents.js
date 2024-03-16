@@ -1,4 +1,4 @@
-import getOrderDetails from '../api/mergeCalls';
+import { getOrderDetails } from '../api/mergeCalls';
 import { createOrder, getAllOrders, updateOrder } from '../api/orderData';
 import { createRevenue, updateRevenue } from '../api/revenueData';
 import viewOrderDetails from '../pages/orderDetails';
