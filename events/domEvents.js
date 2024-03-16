@@ -6,6 +6,7 @@ import addOrderForm from '../components/forms/addOrderForm';
 // import addOrderItemForm from '../components/forms/addOrderItemForm';
 import viewItems from '../pages/menu';
 import viewOrderDetails from '../pages/orderDetails';
+import closeOrderForm from '../components/forms/closeOrderForm';
 import viewOrders from '../pages/viewOrders';
 
 const domEvents = (uid) => {
@@ -58,7 +59,8 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('go-to-payment-btn')) {
-      console.warn('go to payment btn pushed');
+      const [, firebaseKey] = e.target.id.split('--');
+      closeOrderForm(firebaseKey);
     }
   });
 };
