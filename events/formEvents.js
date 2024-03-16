@@ -1,3 +1,4 @@
+import { createItem, updateItem } from '../api/itemsData';
 import { createOrder, getAllOrders, updateOrder } from '../api/orderData';
 import viewOrders from '../pages/viewOrders';
 
@@ -40,7 +41,16 @@ const formEvents = (uid) => {
     }
 
     if (e.target.id.includes('create-item-btn')) {
-      console.warn('Item created!');
+      const payload = {
+        name: document.querySelector('#itemName').value,
+        price: document.querySelector('#itemPrice'),
+        uid,
+      };
+        // context needed
+      createItem(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateItem(patchPayload);
+      });
     }
 
     if (e.target.id.includes('update-item-btn')) {
