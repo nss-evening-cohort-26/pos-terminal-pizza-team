@@ -29,7 +29,6 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('order-details-btn')) {
-      console.warn('order details btn pushed');
       const [, firebaseKey] = e.target.id.split('--');
       getOrderDetails(firebaseKey).then((obj) => viewOrderDetails(obj));
     }

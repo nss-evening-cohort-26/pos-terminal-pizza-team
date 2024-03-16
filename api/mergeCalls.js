@@ -3,13 +3,11 @@ import { getAllOrderItems } from './orderItemsData';
 import { getSingleItem } from './itemsData';
 
 const getOrderDetails = async (orderFirebaseKey) => {
-  console.warn(orderFirebaseKey);
   //  GET THE SINGLE ORDER
   const order = await getSingleOrder(orderFirebaseKey);
 
   // GET THE ORDER ITEMS RELATED TO THE ORDER
   const orderItems = await getAllOrderItems(orderFirebaseKey);
-  console.warn(orderItems);
 
   // GET THE SINGLE ITEMS IN ORDER RETURNS AN ARRAY OF PROMISES
   const items = await orderItems.map((ob) => getSingleItem(ob.item_id));
