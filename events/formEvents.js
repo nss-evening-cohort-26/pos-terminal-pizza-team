@@ -1,6 +1,7 @@
 import getOrderDetails from '../api/mergeCalls';
 import { createOrder, getAllOrders, updateOrder } from '../api/orderData';
 import { createRevenue, updateRevenue } from '../api/revenueData';
+import viewOrderDetails from '../pages/orderDetails';
 import viewOrders from '../pages/viewOrders';
 
 const formEvents = (uid) => {
@@ -68,7 +69,7 @@ const formEvents = (uid) => {
           order_id: orderFirebaseKey,
           order_type: order.order_type,
           // Calculate order total, adding tip from form
-          order_total: order.items.reduce((tot, item) => tot + Number(item.price), 0) + tip,
+          order_total: (order.items.reduce((tot, item) => tot + Number(item.price), 0) + tip).toFixed(2),
           date: Date.now(),
           uid
         };
@@ -79,7 +80,7 @@ const formEvents = (uid) => {
           // Change order status to closed
           const orderPatchPayload = { open: false, firebaseKey: orderFirebaseKey };
           updateOrder(orderPatchPayload).then(
-            getOrderDetails(orderFirebaseKey)
+            getOrderDetails(orderFirebaseKey).then(viewOrderDetails)
           );
         });
       });
