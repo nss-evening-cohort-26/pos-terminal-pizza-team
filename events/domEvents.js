@@ -2,6 +2,7 @@ import getOrderDetails from '../api/mergeCalls';
 import { getAllOrders, getSingleOrder } from '../api/orderData';
 import addOrderForm from '../components/forms/addOrderForm';
 import viewOrderDetails from '../pages/orderDetails';
+import closeOrderForm from '../components/forms/closeOrderForm';
 import viewOrders from '../pages/viewOrders';
 
 const domEvents = (uid) => {
@@ -46,7 +47,8 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('go-to-payment-btn')) {
-      console.warn('go to payment btn pushed');
+      const [, firebaseKey] = e.target.id.split('--');
+      closeOrderForm(firebaseKey);
     }
   });
 };
