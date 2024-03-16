@@ -10,7 +10,7 @@ const viewOrderDetails = (obj) => {
 
   let domString = '';
   domString = `<h2>${obj.customer_name}</h2>
-  <h2>Total: $${totalPrice}</h2>
+  <h2>Total: $${totalPrice.toFixed(2)}</h2>
   `;
 
   obj.items.forEach((item) => {
