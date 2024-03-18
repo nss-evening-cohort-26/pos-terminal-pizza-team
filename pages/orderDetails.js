@@ -1,19 +1,16 @@
 import renderToDOM from '../utils/renderToDom';
 import clearDom from '../utils/clearDom';
-// TODO: get order name
-// TODO: get order total (function)
-// TODO: array.forEach loop for order item cards
 
 const viewOrderDetails = (obj) => {
   clearDom();
-  const totalPrice = obj.items.reduce((accumulator, item) => accumulator + Number(item.price), 0);
 
   let domString = '';
-  domString = `<h2>${obj.customer_name}</h2>
-  <h2>Total: $${totalPrice.toFixed(2)}</h2>
-  `;
+  // domString = `<h2>${obj.customer_name}</h2>`;
 
   if (obj.items.length) {
+    const totalPrice = obj.items.reduce((accumulator, item) => accumulator + Number(item.price), 0);
+    domString += `<h2>${obj.customer_name}</h2> <h2>Total: $${totalPrice.toFixed(2)}</h2>`;
+
     obj.items.forEach((item) => {
       domString += `
       <div class="card w-90 mb-3">
