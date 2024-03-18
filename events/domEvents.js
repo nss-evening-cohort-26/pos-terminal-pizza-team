@@ -7,12 +7,13 @@ import viewOrderDetails from '../pages/orderDetails';
 import closeOrderForm from '../components/forms/closeOrderForm';
 import viewOrders from '../pages/viewOrders';
 import { deleteOrderItem, createOrderItem, updateOrderItem } from '../api/orderItemsData';
+import { getAllRevenue } from '../api/revenueData';
+import viewRevenue from '../pages/revenue';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('view-revenue-btn')) {
-      console.warn('view revenue btn pushed');
-      console.warn(uid);
+      getAllRevenue(uid).then(viewRevenue);
     }
 
     if (e.target.id.includes('view-orders-btn')) {
