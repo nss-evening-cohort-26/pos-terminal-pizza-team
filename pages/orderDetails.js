@@ -17,7 +17,7 @@ const viewOrderDetails = (obj) => {
         <div class="card-body item-card">
           <h5 class="card-title">${item.name}</h5>
           <h5 class="card-title">PRICE: $${item.price}</h5>
-          ${obj.open ? `<a href="#" class="card-link" id="delete-order-item-btn--${item.firebaseKey}">delete</a>` : ''}
+          ${obj.open ? `<a href="#" class="card-link" id="delete-order-item-btn--${item.firebaseKey}..${obj.firebaseKey}">delete</a>` : ''}
         </div>
       </div>`;
     });
