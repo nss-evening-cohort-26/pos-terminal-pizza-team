@@ -51,7 +51,9 @@ const domEvents = (uid) => {
 
     if (e.target.id.includes('delete-order-item-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      deleteOrderItem(firebaseKey).then(getOrderDetails(uid.firebaseKey)).then((obj) => viewOrderDetails(obj));
+      deleteOrderItem(firebaseKey).then(() => {
+        getOrderDetails().then((obj) => viewOrderDetails(obj));
+      });
     }
 
     if (e.target.id.includes('go-to-payment-btn')) {
