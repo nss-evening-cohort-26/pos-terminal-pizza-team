@@ -14,10 +14,16 @@ const getOrderDetails = async (orderFirebaseKey) => {
   const items = await orderItems.map((ob) => getSingleItem(ob.item_id));
 
   // PROMISE.ALL TO GET ALL ITEM OBJECTS
-  const ItemsInOrder = await Promise.all(items);
+  const itemsInOrder = await Promise.all(items);
+
+  itemsInOrder.forEach((element, index) => {
+    // eslint-disable-next-line no-param-reassign
+    element.order_item_id = orderItems[index].firebaseKey;
+  });
 
   // RETURN THE ORDER OBJECT AND THE ARRAY OF ITEMS FOUND IN ORDERITEMS
-  return { ...order, items: ItemsInOrder };
+  console.warn(itemsInOrder);
+  return { ...order, items: itemsInOrder };
 };
 
 const deleteOrderAndOrderItems = async (orderFirebaseKey) => {

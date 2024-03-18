@@ -64,10 +64,9 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('delete-order-item-btn')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      const [itemFirebaseKey, orderFirebaseKey] = firebaseKey.split('..');
-      console.warn(itemFirebaseKey);
-      deleteOrderItem(itemFirebaseKey).then(() => {
+      const [, orderItemFirebaseKey, orderFirebaseKey] = e.target.id.split('..');
+      console.warn(orderItemFirebaseKey, orderFirebaseKey);
+      deleteOrderItem(orderItemFirebaseKey).then(() => {
         getOrderDetails(orderFirebaseKey).then((obj) => viewOrderDetails(obj));
       });
     }
