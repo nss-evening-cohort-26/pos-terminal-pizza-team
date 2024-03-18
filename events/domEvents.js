@@ -65,7 +65,6 @@ const domEvents = (uid) => {
 
     if (e.target.id.includes('delete-order-item-btn')) {
       const [, orderItemFirebaseKey, orderFirebaseKey] = e.target.id.split('..');
-      console.warn(orderItemFirebaseKey, orderFirebaseKey);
       deleteOrderItem(orderItemFirebaseKey).then(() => {
         getOrderDetails(orderFirebaseKey).then((obj) => viewOrderDetails(obj));
       });

@@ -22,7 +22,6 @@ const getOrderDetails = async (orderFirebaseKey) => {
   });
 
   // RETURN THE ORDER OBJECT AND THE ARRAY OF ITEMS FOUND IN ORDERITEMS
-  console.warn(itemsInOrder);
   return { ...order, items: itemsInOrder };
 };
 
