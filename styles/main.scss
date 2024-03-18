@@ -3,8 +3,8 @@
 
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: rgb(41, 46, 46);
+  color: whitesmoke;
   text-align: center;
   margin-top: 100px;
 }
@@ -17,4 +17,143 @@ body {
 
 .card {
   margin: 5px;
+}
+
+.navbar {
+  font-size: 20px;
+}
+
+#welcome-message {
+  font-size: 60px;
+  color: whitesmoke;
+  font-weight: bold;
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+
+.homescreen-btns {
+  width: 325px;
+  padding: 5px 70px;
+  font-size: 22px;
+  color: whitesmoke;
+  border-radius: 7px;
+  margin-bottom: 20px;
+  border: none;
+}
+
+#view-orders-btn {
+  background-color: rgb(65, 148, 65);
+}
+
+.create-order { 
+  background-color: rgb(92, 159, 208);
+}
+
+#view-revenue-btn {
+  background-color: rgb(231, 201, 29);
+  color: rgb(65, 65, 65);
+}
+
+.card-body {
+  text-align: left;
+}
+
+.card a {
+  text-decoration: none;
+}
+
+.edit-btn {
+  color: rgb(138, 70, 248);
+}
+
+.delete-btn {
+  color: red;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.item-cards {
+  margin: 30px 50px;
+}
+
+.add-item-btn, .payment-btn {
+  width: 35%;
+  font-size: 20px;
+  color: whitesmoke;
+  border-radius: 7px !important;
+  margin: 50px 5px;
+}
+
+.add-item-btn {
+  background-color: rgb(65, 148, 65);
+  border: none;
+}
+
+.add-item-btn:hover {
+  background-color: rgb(65, 148, 65);
+  border: none;
+}
+
+.add-item-btn:active {
+  background-color: rgb(65, 148, 65);
+  border: none;
+}
+
+.payment-btn {
+  background-color: rgb(92, 159, 208);
+  border: none;
+}
+
+.payment-btn:hover {
+  background-color: rgb(92, 159, 208);
+  border: none;
+}
+
+.payment-btn:active {
+  background-color: rgb(92, 159, 208);
+  border: none;
+}
+
+#view-total {
+  font-size: 45px;
+}
+
+#form-container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 65%;
+  text-align: left;
+}
+
+.field-box {
+  margin-bottom: 18px;
+}
+
+.submit-update-btn {
+  margin: 30px;
+  text-align: center;
+}
+
+.sub-up-btn {
+  background-color: rgb(65, 148, 65) !important;
+  width: 65%;
+  border: none;
+  margin-top: 40px;
+}
+
+.login-btn {
+  background-color: rgb(65, 148, 65);
+  border:none;
+}
+
+.login-btn:hover {
+  background-color: rgb(65, 148, 65);
+  border:none;
+}
+
+.login-btn:active {
+  background-color: rgb(65, 148, 65);
+  border:none;
 }

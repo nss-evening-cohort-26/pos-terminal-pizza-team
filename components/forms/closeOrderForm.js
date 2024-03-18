@@ -20,7 +20,9 @@ const closeOrderForm = (orderFirebaseKey) => {
         <label for="tipAmount">Tip Amount</label>
         <input type="number" min="0.00" max="10000.00" step="0.01" class="form-control" id="tipAmount" required>
       </div>
-      <button type="submit" class="btn btn-primary">Close Order</button>
+      <div class="submit-update-btn">
+      <button type="submit" class="sub-up-btn btn btn-primary">Close Order</button>
+      </div>
     </form>`;
 
   renderToDOM('#form-container', domString);

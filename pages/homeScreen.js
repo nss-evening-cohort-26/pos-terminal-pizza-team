@@ -5,9 +5,11 @@ const homeScreen = () => {
   clearDom();
 
   const domString = `
-  <button id="view-orders-btn">View Orders</button>
-  <button id="create-order-btn">Create Order</button>
-  <button id="view-revenue-btn">View Revenue</button>`;
+  <div class="welcome" id="welcome-message">Welcome!</div>
+  <div><button class="homescreen-btns" id="view-orders-btn">View Orders</button></div>
+  <div><button class="homescreen-btns create-order" id="create-order-btn">Create an Order</button></div>
+  <div><button class="homescreen-btns" id="view-revenue-btn">View Revenue</button></div>
+  `;
 
   renderToDOM('#homescreen-buttons', domString);
 };
