@@ -6,7 +6,7 @@ import viewItems from '../pages/menu';
 import viewOrderDetails from '../pages/orderDetails';
 import closeOrderForm from '../components/forms/closeOrderForm';
 import viewOrders from '../pages/viewOrders';
-import { createOrderItem, updateOrderItem } from '../api/orderItemsData';
+import { deleteOrderItem, createOrderItem, updateOrderItem } from '../api/orderItemsData';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -64,7 +64,10 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('delete-order-item-btn')) {
-      console.warn('delete order item btn pushed');
+      const [, orderItemFirebaseKey, orderFirebaseKey] = e.target.id.split('..');
+      deleteOrderItem(orderItemFirebaseKey).then(() => {
+        getOrderDetails(orderFirebaseKey).then((obj) => viewOrderDetails(obj));
+      });
     }
 
     if (e.target.id.includes('go-to-payment-btn')) {
