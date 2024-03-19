@@ -42,7 +42,7 @@ const viewRevenue = (revenue) => {
       <div>
         <h1>REVENUE</h1>
         <h2>TOTAL REVENUE: $0.00</h2>
-        <h4>(Only calculating revenue from closed orders)</h4>
+        <h4>(Only closed orders included in revenue)</h4>
       <div>`;
   }
   renderToDOM('#view', revenueHTML);
