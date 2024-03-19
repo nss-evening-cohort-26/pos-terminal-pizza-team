@@ -1,15 +1,20 @@
 import renderToDOM from '../utils/renderToDom';
 import clearDom from '../utils/clearDom';
+import { getRevenueByOrder } from '../api/revenueData';
 
-const viewOrderDetails = (obj) => {
+const viewOrderDetails = async (obj) => {
   clearDom();
 
   let domString = '';
-  // domString = `<h2>${obj.customer_name}</h2>`;
 
   if (obj.items.length) {
+    const [revenue] = await getRevenueByOrder(obj.firebaseKey);
     const totalPrice = obj.items.reduce((accumulator, item) => accumulator + Number(item.price), 0);
-    domString += `<h2>${obj.customer_name}</h2> <h2>Total: $${totalPrice.toFixed(2)}</h2>`;
+    domString += `
+      <h2>${obj.customer_name}</h2>
+      <h4>Subtotal: $${totalPrice.toFixed(2)}</h4>
+      ${revenue ? `<h4>Tip: $${revenue.tip_amount}</h4><h3>Total: $${revenue.order_total}</h3>` : ''}
+    `;
 
     obj.items.forEach((item) => {
       domString += `
