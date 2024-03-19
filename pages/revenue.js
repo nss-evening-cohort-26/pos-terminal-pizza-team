@@ -6,7 +6,8 @@ const dateRangeFind = (dates) => {
   const milliEnd = new Date(Math.max(...dates));
   return Intl.DateTimeFormat('en-US').formatRange(milliStart, milliEnd);
 };
-
+// TODO: Define manual start/end dates
+// TODO: Display revenue data in chart
 const viewRevenue = (revenue) => {
   clearDom();
   let revenueHTML = '';
