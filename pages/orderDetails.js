@@ -11,9 +11,9 @@ const viewOrderDetails = async (obj) => {
     const [revenue] = await getRevenueByOrder(obj.firebaseKey);
     const totalPrice = obj.items.reduce((accumulator, item) => accumulator + Number(item.price), 0);
     domString += `
-      <h2>${obj.customer_name}</h2>
+      <h2 class="customer-name">${obj.customer_name}</h2>
       <h4>Subtotal: $${totalPrice.toFixed(2)}</h4>
-      ${revenue ? `<h4>Tip: $${revenue.tip_amount.toFixed(2)}</h4><h3>Total: $${revenue.order_total}</h3>` : ''}
+      ${revenue ? `<h4>Tip: $${revenue.tip_amount.toFixed(2)}</h4><h3 class="total">Total: $${revenue.order_total}</h3>` : ''}
     `;
 
     obj.items.forEach((item) => {
