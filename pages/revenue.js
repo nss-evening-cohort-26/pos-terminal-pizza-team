@@ -14,18 +14,18 @@ const viewRevenue = (revenue) => {
   if (revenue.length) {
     revenueHTML += `
       <div>
-        <h1>REVENUE</h1>
-        <h2>TOTAL REVENUE: $${revenue.reduce((tot, rev) => tot + Number(rev.order_total), 0).toFixed(2)}</h2>
-        <div>
+        <div class="rev-text"><h1>REVENUE</h1></div>
+        <div class="rev-text"><h2 class="rev-text">TOTAL REVENUE: $${revenue.reduce((tot, rev) => tot + Number(rev.order_total), 0).toFixed(2)}</h2></div>
+        <div class="rev-details">
           <h4>DATE RANGE:</h4>
           <p>${dateRangeFind(revenue.map((rev) => parseInt(rev.date, 10)))}</p>
         </div>
+        <div class="details">
         <h4 id='total-tips'>TOTAL TIPS: $${revenue.reduce((tot, rev) => tot + Number(rev.tip_amount), 0).toFixed(2)}</h4>
-        <div>
           <h4>TOTAL CALL-IN ORDERS: ${revenue.filter((rev) => rev.order_type === 'phone').length}</h4>
           <h4>TOTAL WALK-IN ORDERS: ${revenue.filter((rev) => rev.order_type === 'in-person').length}</h4>
         </div>
-        <div>
+        <div class="details">
           <h4>PAYMENT TYPES:</h4>
           <h4>CASH - ${revenue.filter((rev) => rev.payment_type === 'cash').length}</h4>
           <h4>CREDIT - ${revenue.filter((rev) => rev.payment_type === 'credit').length}</h4>

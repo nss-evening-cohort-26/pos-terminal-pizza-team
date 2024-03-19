@@ -21,16 +21,14 @@ const navBar = () => {
             <li class="nav-item">
               <a class="nav-link" href="#" id="view-menu">Menu</a>
             </li>
-            <li>
-            <input
+          </ul>
+          <span class="navbar-text">
+          <input
               class="form-control"
               id="search"
               placeholder="Search"
               aria-label="Search"
             />
-            </li>
-          </ul>
-          <span class="navbar-text">
             <div id="logout-button"></div>
           </span>
         </div>

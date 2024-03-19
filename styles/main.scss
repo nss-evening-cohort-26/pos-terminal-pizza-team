@@ -157,3 +157,22 @@ body {
   background-color: rgb(65, 148, 65);
   border:none;
 }
+
+.navbar-text {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.rev-text {
+  margin-top: 100px;
+  font-size: 50px;
+}
+
+.rev-details {
+  margin-top: 40px;
+}
+
+.details {
+  margin-top: 40px;
+}
