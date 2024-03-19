@@ -2,7 +2,7 @@ import { getOrderDetails } from '../api/mergeCalls';
 import { createOrder, getAllOrders, updateOrder } from '../api/orderData';
 import { createRevenue, updateRevenue } from '../api/revenueData';
 import viewOrderDetails from '../pages/orderDetails';
-import viewOrders from '../pages/viewOrders';
+import { viewOrders } from '../pages/viewOrders';
 
 const formEvents = (uid) => {
   document.querySelector('#form-container').addEventListener('submit', (e) => {
