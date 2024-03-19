@@ -22,7 +22,7 @@ const viewOrderDetails = async (obj) => {
         <div class="card-body item-card">
           <h5 class="card-title">${item.name}</h5>
           <h5 class="card-title">PRICE: $${item.price}</h5>
-          ${obj.open ? `<a href="#" class="card-link" id="delete-order-item-btn--${item.firebaseKey}">delete</a>` : ''}
+          ${obj.open ? `<a href="#" class="card-link delete-btn" id="delete-order-item-btn..${item.order_item_id}..${obj.firebaseKey}">Delete Item</a>` : ''}
         </div>
       </div>`;
     });
