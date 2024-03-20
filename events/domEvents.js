@@ -1,11 +1,13 @@
 import { getAllItems } from '../api/itemsData';
 import { deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
-import { getAllOrders, getSingleOrder } from '../api/orderData';
+import {
+  getAllOrders, getClosedOrders, getOpenOrders, getSingleOrder
+} from '../api/orderData';
 import addOrderForm from '../components/forms/addOrderForm';
 import viewItems from '../pages/menu';
 import viewOrderDetails from '../pages/orderDetails';
 import closeOrderForm from '../components/forms/closeOrderForm';
-import viewOrders from '../pages/viewOrders';
+import { viewOrders, noOrders } from '../pages/viewOrders';
 import { deleteOrderItem, createOrderItem, updateOrderItem } from '../api/orderItemsData';
 import { getAllRevenue } from '../api/revenueData';
 import viewRevenue from '../pages/revenue';
@@ -74,6 +76,20 @@ const domEvents = (uid) => {
     if (e.target.id.includes('go-to-payment-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       closeOrderForm(firebaseKey);
+    }
+
+    if (e.target.id.includes('view-open-orders')) {
+      getOpenOrders(uid).then((response) => {
+        if (response.length > 0) {
+          viewOrders(response);
+        } else {
+          noOrders();
+        }
+      });
+    }
+
+    if (e.target.id.includes('view-closed-orders')) {
+      getClosedOrders(uid).then(viewOrders);
     }
   });
 };

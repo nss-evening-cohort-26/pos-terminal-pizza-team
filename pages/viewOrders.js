@@ -1,10 +1,34 @@
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
+const noOrders = () => {
+  clearDom();
+
+  const btnString = `<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+  <button class="btn btn-primary" id="view-orders-btn" type="button">View All</button>
+  <button class="btn btn-primary" id="view-open-orders" type="button">View Open</button>
+  <button class="btn btn-primary" id="view-closed-orders" type="button">View Closed</button>
+  </div>`;
+  renderToDOM('#add-button', btnString);
+
+  const domString = "<h1>You ain't got no orders!</h1>";
+  renderToDOM('#orders', domString);
+};
+
 const viewOrders = (array) => {
   clearDom();
 
+  const btnString = `<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+  <button class="btn btn-primary" id="view-orders-btn" type="button">View All</button>
+  <button class="btn btn-primary" id="view-open-orders" type="button">View Open</button>
+  <button class="btn btn-primary" id="view-closed-orders" type="button">View Closed</button>
+  </div>`;
+  renderToDOM('#add-button', btnString);
+
   let domString = '';
+
+  array.sort((a, b) => b.open - a.open);
+
   array.forEach((item) => {
     domString += `
     <div class="card" style="width: 18rem;">
@@ -23,4 +47,4 @@ const viewOrders = (array) => {
   renderToDOM('#orders', domString);
 };
 
-export default viewOrders;
+export { viewOrders, noOrders };

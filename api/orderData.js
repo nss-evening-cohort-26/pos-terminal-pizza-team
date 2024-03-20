@@ -70,10 +70,24 @@ const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getOpenOrders = async (uid) => {
+  const order = await getAllOrders(uid);
+  const openOprders = await order.filter((obj) => obj.open);
+  return openOprders;
+};
+
+const getClosedOrders = async (uid) => {
+  const order = await getAllOrders(uid);
+  const closedorders = await order.filter((obj) => !obj.open);
+  return closedorders;
+};
+
 export {
   getAllOrders,
   getSingleOrder,
   createOrder,
   updateOrder,
-  deleteOrder
+  deleteOrder,
+  getOpenOrders,
+  getClosedOrders
 };
