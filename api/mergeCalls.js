@@ -1,4 +1,4 @@
-import { deleteOrder, getSingleOrder } from './orderData';
+import { getAllOrders, deleteOrder, getSingleOrder } from './orderData';
 import { deleteOrderItem, getAllOrderItems } from './orderItemsData';
 import { getSingleItem } from './itemsData';
 import { deleteRevenue, getRevenueByOrder } from './revenueData';
@@ -36,4 +36,14 @@ const deleteOrderAndOrderItems = async (orderFirebaseKey) => {
   await deleteOrder(orderFirebaseKey);
 };
 
-export { getOrderDetails, deleteOrderAndOrderItems };
+const searchOrders = async (uid, searchValue) => {
+  const allOrders = await getAllOrders(uid);
+  console.warn(allOrders);
+  const filteredOrders = await allOrders.filter((order) => (
+    order.customer_name.toLowerCase().includes(searchValue)
+  || order.customer_phone.includes(searchValue)
+  ));
+  return filteredOrders;
+};
+
+export { searchOrders, getOrderDetails, deleteOrderAndOrderItems };
