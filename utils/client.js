@@ -8,4 +8,8 @@ const client = {
   measurementId: process.env.APP_MEASUREMENT_ID,
 };
 
-export default client;
+const adminUIDs = {
+  adminOne: process.env.APP_ADMIN_ONE
+};
+
+export { client, adminUIDs };
