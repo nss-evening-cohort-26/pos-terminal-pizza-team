@@ -61,7 +61,7 @@ const formEvents = (uid) => {
         const tip = Number(document.querySelector('#tipAmount').value);
         const payload = {
           payment_type: document.querySelector('#paymentType').value,
-          tip_amount: tip,
+          tip_amount: tip.toFixed(2),
           order_id: orderFirebaseKey,
           order_type: order.order_type,
           // Calculate order total, adding tip from form
