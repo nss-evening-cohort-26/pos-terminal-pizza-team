@@ -15,7 +15,7 @@ const viewOrderDetails = async (obj) => {
   if (obj.items.length) {
     const [revenue] = await getRevenueByOrder(obj.firebaseKey);
     domString += `
-      ${revenue ? `<h4>Tip: $${revenue.tip_amount.toFixed(2)}</h4><h3 class="total">Total: $${revenue.order_total}</h3>` : ''}
+      ${revenue ? `<h4>Tip: $${revenue.tip_amount}</h4><h3 class="total">Total: $${revenue.order_total}</h3>` : ''}
     `;
 
     obj.items.forEach((item) => {
