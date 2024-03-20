@@ -10,7 +10,8 @@ const viewItems = (array, orderFirebaseKey = '') => {
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">${item.name}</h5>
-        <p class="card-text">Price: $${item.price}</p>
+        <div><img src="${item.image}" alt="Image of ${item.name}" width="100"></div>
+        <p class="card-text">${item.sale ? `<span class="badge bg-info sale-badge"><i class="fa fa-bell" aria-hidden="true"></i> Sale</span><p>Price: $${item.price}</p>` : `Price: $${item.price}`}</p>
         ${orderFirebaseKey ? `<a href="#" class="card-link" id="create-order-item-btn..${item.firebaseKey}..${orderFirebaseKey}">Add Item To Order</a>` : ''}
       </div>
     </div>`;
