@@ -6,13 +6,15 @@ const viewOrderDetails = async (obj) => {
   clearDom();
 
   let domString = '';
+  const totalPrice = obj.items.reduce((accumulator, item) => accumulator + Number(item.price), 0);
+  domString += `
+    <h2 class="customer-name">${obj.customer_name}</h2>
+    <h4>Subtotal: $${totalPrice.toFixed(2)}</h4>
+  `;
 
   if (obj.items.length) {
     const [revenue] = await getRevenueByOrder(obj.firebaseKey);
-    const totalPrice = obj.items.reduce((accumulator, item) => accumulator + Number(item.price), 0);
     domString += `
-      <h2 class="customer-name">${obj.customer_name}</h2>
-      <h4>Subtotal: $${totalPrice.toFixed(2)}</h4>
       ${revenue ? `<h4>Tip: $${revenue.tip_amount.toFixed(2)}</h4><h3 class="total">Total: $${revenue.order_total}</h3>` : ''}
     `;
 
@@ -33,7 +35,7 @@ const viewOrderDetails = async (obj) => {
   if (obj.open) {
     domString += `
       <button id="add-order-item-btn--${obj.firebaseKey}" type="button" class="add-item-btn btn btn-primary">Add Item</button>
-      <button id="go-to-payment-btn--${obj.firebaseKey}" type="button" class="payment-btn btn btn-success">Go to Payment</button>
+      ${obj.items.length ? `<button id="go-to-payment-btn--${obj.firebaseKey}" type="button" class="payment-btn btn btn-success">Go to Payment</button>` : ''}
     `;
   }
 

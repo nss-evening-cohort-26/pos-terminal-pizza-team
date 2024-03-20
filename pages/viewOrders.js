@@ -39,8 +39,8 @@ const viewOrders = (array) => {
         <p class="card-text">Customer Email Address: ${item.customer_email}</p>
         <p class="card-text">Order Type: ${item.order_type}</p>
         <a href="#" class="card-link" id="order-details-btn--${item.firebaseKey}">Details</a>
-        <a href="#" class="edit-btn card-link" id="edit-order-btn--${item.firebaseKey}">Edit</a>
-        <a href="#" class="delete-btn card-link" id="delete-order-btn--${item.firebaseKey}">Delete</a>
+        <a href="#" class="edit-btn card-link" id="edit-order-btn--${item.firebaseKey}">${item.open ? 'Edit' : ''}</a>
+        <a href="#" class="delete-btn card-link" id="delete-order-btn--${item.firebaseKey}">${item.open ? 'Delete' : ''}</a>
       </div>
     </div>`;
   });
