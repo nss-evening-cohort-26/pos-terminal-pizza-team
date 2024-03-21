@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+// import Chart from 'chart.js/auto';
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
@@ -6,17 +8,36 @@ import renderToDOM from '../utils/renderToDom';
 const viewRevenue = (revenueAll, startDate = 0, endDate = 0) => {
   clearDom();
   let revenueHTML = '';
-  const revenue = revenueAll.filter((rev) => rev.date > startDate && rev.date < (endDate || Date.now()));
+  const revenue = revenueAll.filter((rev) => Number(rev.date) > startDate && Number(rev.date) < (endDate || Date.now()));
 
   const dates = revenue.map((rev) => parseInt(rev.date, 10));
-  const milliStart = startDate || (dates.length ? new Date(Math.min(...dates)) : 0);
+  const milliStart = startDate || (dates.length ? Math.min(...dates) : 0);
   const milliEnd = endDate || Date.now();
+  const localOffsetStart = new Date(milliStart).getTimezoneOffset() * 60000;
+  const localOffsetEnd = new Date(milliEnd).getTimezoneOffset() * 60000;
+  console.warn(localOffsetStart, localOffsetEnd);
+
+  // const data = [
+  //   { year: 2010, count: 10 },
+  //   { year: 2011, count: 20 },
+  //   { year: 2012, count: 15 },
+  //   { year: 2013, count: 25 },
+  //   { year: 2014, count: 22 },
+  //   { year: 2015, count: 30 },
+  //   { year: 2016, count: 28 },
+  // ];
+
   const dateHTML = `
     <h4>DATE RANGE:</h4>
-    <p>${Intl.DateTimeFormat('en-US').formatRange(milliStart, milliEnd)}</p>
+    <p>${Intl.DateTimeFormat().formatRange(milliStart, milliEnd)}</p>
+    <h6>Set Custom Date Range</h6>
     <div>
-      <input type="date" value="${milliStart}"
+      <input id="revenue-start" type="date" value="${new Date(milliStart - localOffsetStart).toISOString().split('T')[0]}">
+      <p>-</p>
+      <input id="revenue-end" type="date" value="${new Date(milliEnd - localOffsetEnd).toISOString().split('T')[0]}">
+      <a id="update-revenue-range-btn" href="#">Update</a>
     </div>
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
   `;
 
   if (revenue.length) {

@@ -171,6 +171,12 @@ body {
 
 .rev-details {
   margin-top: 40px;
+  input, p {
+    display: inline-block;
+  }
+  a {
+    display: block;
+  }
 }
 
 .details {
