@@ -11,6 +11,7 @@ import { viewOrders, noOrders } from '../pages/viewOrders';
 import { deleteOrderItem, createOrderItem, updateOrderItem } from '../api/orderItemsData';
 import { getAllRevenue } from '../api/revenueData';
 import viewRevenue from '../pages/revenue';
+import { adminUIDs } from '../utils/client';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -19,7 +20,8 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('view-orders-btn')) {
-      getAllOrders(uid).then(viewOrders);
+      const adminCheck = Object.values(adminUIDs).filter((admin) => admin === uid).length ? '' : uid;
+      getAllOrders(adminCheck).then(viewOrders);
     }
 
     if (e.target.id.includes('create-order-btn')) {
