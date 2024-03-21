@@ -38,7 +38,6 @@ const deleteOrderAndOrderItems = async (orderFirebaseKey) => {
 
 const searchOrders = async (uid, searchValue) => {
   const allOrders = await getAllOrders(uid);
-  console.warn(allOrders);
   const filteredOrders = await allOrders.filter((order) => (
     order.customer_name.toLowerCase().includes(searchValue)
   || order.customer_phone.includes(searchValue)

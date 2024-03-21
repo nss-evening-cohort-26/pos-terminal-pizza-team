@@ -14,7 +14,7 @@ const navEvents = (uid) => {
   });
 
   document.querySelector('#create-an-order').addEventListener('click', () => {
-    addOrderForm();
+    addOrderForm(uid);
   });
 
   document.querySelector('#logo').addEventListener('click', () => {

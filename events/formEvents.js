@@ -55,7 +55,6 @@ const formEvents = (uid) => {
     }
 
     if (e.target.id.includes('close-order-btn')) {
-      console.warn('Order closed!');
       const [, orderFirebaseKey] = e.target.id.split('--');
       getOrderDetails(orderFirebaseKey).then((order) => {
         const tip = Number(document.querySelector('#tipAmount').value);
@@ -69,7 +68,6 @@ const formEvents = (uid) => {
           date: Date.now(),
           uid
         };
-        console.warn(payload);
         createRevenue(payload).then(({ name }) => {
           const revenuePatchPayload = { firebaseKey: name };
           updateRevenue(revenuePatchPayload);

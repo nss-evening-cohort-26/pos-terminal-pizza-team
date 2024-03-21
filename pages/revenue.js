@@ -10,7 +10,6 @@ const dateRangeFind = (dates) => {
 const viewRevenue = (revenue) => {
   clearDom();
   let revenueHTML = '';
-  console.warn(revenue);
   if (revenue.length) {
     revenueHTML += `
       <div>
