@@ -9,7 +9,10 @@ const client = {
 };
 
 const adminUIDs = {
-  adminOne: process.env.APP_ADMIN_ONE
+  adminOne: process.env.APP_ADMIN_ONE,
+  adminTwo: process.env.APP_ADMIN_TWO,
+  adminThree: process.env.APP_ADMIN_THREE,
+  adminFour: process.env.APP_ADMIN_FOUR
 };
 
 export { client, adminUIDs };
