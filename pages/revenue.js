@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-// import Chart from 'chart.js/auto';
+import { Chart } from 'chart.js/auto';
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
@@ -77,6 +76,26 @@ const viewRevenue = (revenueAll, startDate = 0, endDate = 0) => {
       <div>`;
   }
   renderToDOM('#view', revenueHTML);
+  const ctx = document.getElementById('myChart');
+  // eslint-disable-next-line no-new
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
 };
 
 export default viewRevenue;
