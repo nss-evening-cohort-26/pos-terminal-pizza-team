@@ -1,10 +1,10 @@
-import { client, adminUIDs } from '../utils/client';
+import { adminCheck } from '../utils/auth';
+import { client } from '../utils/client';
 
 const endpoint = client.databaseURL;
 
 const getAllOrders = (uid) => new Promise((resolve, reject) => {
-  const adminCheck = Object.values(adminUIDs).filter((admin) => admin === uid);
-  fetch(`${endpoint}/order.json${adminCheck.length ? '' : `?orderBy="uid"&equalTo="${uid}"`}`, {
+  fetch(`${endpoint}/order.json${adminCheck(uid) ? '' : `?orderBy="uid"&equalTo="${uid}"`}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
