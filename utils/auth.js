@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { adminUIDs } from './client';
 
 const signIn = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -10,4 +11,9 @@ const signOut = () => {
   firebase.auth().signOut();
 };
 
-export { signIn, signOut };
+const adminCheck = (uid) => {
+  const isAdmin = Object.values(adminUIDs).filter((admin) => admin === uid).length > 0;
+  return isAdmin;
+};
+
+export { signIn, signOut, adminCheck };
