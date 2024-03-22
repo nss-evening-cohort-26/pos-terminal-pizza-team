@@ -77,7 +77,6 @@ const domEvents = (uid) => {
       closeOrderForm(firebaseKey);
     }
 
-<<<<<<< HEAD
     if (e.target.id.includes('update-revenue-range-btn')) {
       let startSelect = new Date(document.querySelector('#revenue-start').value).getTime();
       let endSelect = new Date(document.querySelector('#revenue-end').value).getTime();
@@ -99,7 +98,8 @@ const domEvents = (uid) => {
       const endTime = endSelect + new Date(endSelect).getTimezoneOffset() * 60000 + 86399999;
       console.warn(startTime, endTime);
       getAllRevenue(uid).then((revenue) => viewRevenue(revenue, startTime, endTime));
-=======
+    }
+
     if (e.target.id.includes('view-open-orders')) {
       getOpenOrders(uid).then((response) => {
         if (response.length > 0) {
@@ -112,7 +112,6 @@ const domEvents = (uid) => {
 
     if (e.target.id.includes('view-closed-orders')) {
       getClosedOrders(uid).then(viewOrders);
->>>>>>> stretch-goals
     }
   });
 };

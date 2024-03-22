@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import { adminCheck } from '../utils/auth';
->>>>>>> stretch-goals
 import { client } from '../utils/client';
 
 const endpoint = client.databaseURL;
