@@ -1,6 +1,6 @@
-import { render } from 'sass';
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
+import chart from '../components/revenueChart';
 
 const dateRangeFind = (dates) => {
   const milliStart = new Date(Math.min(...dates));
@@ -46,6 +46,7 @@ const viewRevenue = (revenue) => {
       <div>`;
   }
   renderToDOM('#view', revenueHTML);
+  chart();
 };
 
 export default viewRevenue;
