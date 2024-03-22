@@ -11,7 +11,6 @@ import { viewOrders, noOrders } from '../pages/viewOrders';
 import { deleteOrderItem, createOrderItem, updateOrderItem } from '../api/orderItemsData';
 import { getAllRevenue } from '../api/revenueData';
 import viewRevenue from '../pages/revenue';
-import { adminUIDs } from '../utils/client';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -20,17 +19,16 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('view-orders-btn')) {
-      const adminCheck = Object.values(adminUIDs).filter((admin) => admin === uid).length ? '' : uid;
-      getAllOrders(adminCheck).then(viewOrders);
+      getAllOrders(uid).then(viewOrders);
     }
 
     if (e.target.id.includes('create-order-btn')) {
-      addOrderForm();
+      addOrderForm(uid);
     }
 
     if (e.target.id.includes('edit-order-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then(addOrderForm);
+      getSingleOrder(firebaseKey).then((order) => addOrderForm(uid, order));
     }
 
     if (e.target.id.includes('delete-order-btn')) {
@@ -44,7 +42,6 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('order-details-btn')) {
-      console.warn('order details btn pushed');
       const [, firebaseKey] = e.target.id.split('--');
       getOrderDetails(firebaseKey).then((obj) => viewOrderDetails(obj));
     }
