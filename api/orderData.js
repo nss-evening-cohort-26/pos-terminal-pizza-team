@@ -1,9 +1,13 @@
+<<<<<<< HEAD
+=======
+import { adminCheck } from '../utils/auth';
+>>>>>>> stretch-goals
 import { client } from '../utils/client';
 
 const endpoint = client.databaseURL;
 
 const getAllOrders = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/order.json?orderBy="uid"&equalTo="${uid}"`, {
+  fetch(`${endpoint}/order.json${adminCheck(uid) ? '' : `?orderBy="uid"&equalTo="${uid}"`}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -70,10 +74,24 @@ const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getOpenOrders = async (uid) => {
+  const order = await getAllOrders(uid);
+  const openOprders = await order.filter((obj) => obj.open);
+  return openOprders;
+};
+
+const getClosedOrders = async (uid) => {
+  const order = await getAllOrders(uid);
+  const closedorders = await order.filter((obj) => !obj.open);
+  return closedorders;
+};
+
 export {
   getAllOrders,
   getSingleOrder,
   createOrder,
   updateOrder,
-  deleteOrder
+  deleteOrder,
+  getOpenOrders,
+  getClosedOrders
 };

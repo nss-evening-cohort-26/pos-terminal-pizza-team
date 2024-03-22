@@ -1,11 +1,13 @@
 import { getAllItems } from '../api/itemsData';
 import { deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
-import { getAllOrders, getSingleOrder } from '../api/orderData';
+import {
+  getAllOrders, getClosedOrders, getOpenOrders, getSingleOrder
+} from '../api/orderData';
 import addOrderForm from '../components/forms/addOrderForm';
 import viewItems from '../pages/menu';
 import viewOrderDetails from '../pages/orderDetails';
 import closeOrderForm from '../components/forms/closeOrderForm';
-import viewOrders from '../pages/viewOrders';
+import { viewOrders, noOrders } from '../pages/viewOrders';
 import { deleteOrderItem, createOrderItem, updateOrderItem } from '../api/orderItemsData';
 import { getAllRevenue } from '../api/revenueData';
 import viewRevenue from '../pages/revenue';
@@ -21,12 +23,12 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('create-order-btn')) {
-      addOrderForm();
+      addOrderForm(uid);
     }
 
     if (e.target.id.includes('edit-order-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then(addOrderForm);
+      getSingleOrder(firebaseKey).then((order) => addOrderForm(uid, order));
     }
 
     if (e.target.id.includes('delete-order-btn')) {
@@ -40,7 +42,6 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('order-details-btn')) {
-      console.warn('order details btn pushed');
       const [, firebaseKey] = e.target.id.split('--');
       getOrderDetails(firebaseKey).then((obj) => viewOrderDetails(obj));
     }
@@ -76,6 +77,7 @@ const domEvents = (uid) => {
       closeOrderForm(firebaseKey);
     }
 
+<<<<<<< HEAD
     if (e.target.id.includes('update-revenue-range-btn')) {
       let startSelect = new Date(document.querySelector('#revenue-start').value).getTime();
       let endSelect = new Date(document.querySelector('#revenue-end').value).getTime();
@@ -97,6 +99,20 @@ const domEvents = (uid) => {
       const endTime = endSelect + new Date(endSelect).getTimezoneOffset() * 60000 + 86399999;
       console.warn(startTime, endTime);
       getAllRevenue(uid).then((revenue) => viewRevenue(revenue, startTime, endTime));
+=======
+    if (e.target.id.includes('view-open-orders')) {
+      getOpenOrders(uid).then((response) => {
+        if (response.length > 0) {
+          viewOrders(response);
+        } else {
+          noOrders();
+        }
+      });
+    }
+
+    if (e.target.id.includes('view-closed-orders')) {
+      getClosedOrders(uid).then(viewOrders);
+>>>>>>> stretch-goals
     }
   });
 };
