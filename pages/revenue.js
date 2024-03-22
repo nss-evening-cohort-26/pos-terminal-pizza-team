@@ -16,16 +16,6 @@ const viewRevenue = (revenueAll, startDate = 0, endDate = 0) => {
   const localOffsetEnd = new Date(milliEnd).getTimezoneOffset() * 60000;
   console.warn(localOffsetStart, localOffsetEnd);
 
-  // const data = [
-  //   { year: 2010, count: 10 },
-  //   { year: 2011, count: 20 },
-  //   { year: 2012, count: 15 },
-  //   { year: 2013, count: 25 },
-  //   { year: 2014, count: 22 },
-  //   { year: 2015, count: 30 },
-  //   { year: 2016, count: 28 },
-  // ];
-
   const dateHTML = `
     <h4>DATE RANGE:</h4>
     <p>${Intl.DateTimeFormat().formatRange(milliStart, milliEnd)}</p>
