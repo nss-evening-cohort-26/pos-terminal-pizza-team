@@ -66,7 +66,7 @@ This app is a web solution for a mom and pop restaurant called Hip Hop, Pizza, a
 - Toggle between viewing open orders and closed orders
 - View Revenue Details
 - Adjust date range for viewing revenue details
-- CRUD Menu Items
+- Create, Read, Update and Hide Menu Items
 - CRUD Artists
 
 ## Video Walkthrough of Hip Hop, Pizza, and Wangs <!-- A loom link is sufficient -->
