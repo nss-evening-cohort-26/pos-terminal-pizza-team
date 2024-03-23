@@ -1,14 +1,13 @@
 import { getAllOrders } from '../../api/orderData';
+import { adminCheck } from '../../utils/auth';
 import clearDom from '../../utils/clearDom';
-import { adminUIDs } from '../../utils/client';
 import renderToDOM from '../../utils/renderToDom';
 
 const addOrderForm = async (uid, obj = {}) => {
   clearDom();
 
-  const adminCheck = Object.values(adminUIDs).filter((admin) => admin === uid);
   let closeFirstKey = '';
-  if (!adminCheck.length) {
+  if (!adminCheck(uid)) {
     const customerOrders = await getAllOrders(uid);
     const [openCustomerOrders] = customerOrders.filter((order) => order.open);
     if (openCustomerOrders) { closeFirstKey = openCustomerOrders.firebaseKey; }
