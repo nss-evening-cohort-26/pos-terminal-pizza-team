@@ -21,8 +21,8 @@ This app is a web solution for a mom and pop restaurant called Hip Hop, Pizza, a
 - Create, Read, Update and Hide Menu Items
 - CRUD Artists
 
-## Video Walkthrough of Hip Hop, Pizza, and Wangs <!-- A loom link is sufficient -->
-To Be Recorded
+## Video Walkthrough of Hip Hop, Pizza, and Wangs
+[View Loom Video](https://www.loom.com/share/eeac78439be64ab097bedefd1d05d388?sid=27609581-0066-4783-8372-bb87dbdff48e)
 
 ## Relevant Links
 - [Check out the deployed site](https://team-pizza-afhd.netlify.app/)
