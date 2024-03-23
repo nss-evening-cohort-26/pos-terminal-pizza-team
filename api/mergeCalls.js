@@ -1,6 +1,8 @@
-import { getAllOrders, deleteOrder, getSingleOrder } from './orderData';
-import { deleteOrderItem, getAllOrderItems } from './orderItemsData';
-import { getSingleItem } from './itemsData';
+import {
+  getAllOrders, deleteOrder, getSingleOrder, getOpenOrders
+} from './orderData';
+import { deleteOrderItem, getAllOrderItems, getOrderItemsByItem } from './orderItemsData';
+import { getSingleItem, updateItem } from './itemsData';
 import { deleteRevenue, getRevenueByOrder } from './revenueData';
 
 const getOrderDetails = async (orderFirebaseKey) => {
@@ -44,5 +46,24 @@ const searchOrders = async (uid, searchValue) => {
   ));
   return filteredOrders;
 };
+const removeMenuItem = async (uid, itemFirebaseKey) => {
+  const orderItems = await getOrderItemsByItem(itemFirebaseKey);
+  const openOrders = await getOpenOrders(uid);
+  // find and delete instances of item in open orders
+  const openOrderItems = orderItems.filter((oi) => openOrders.some((oo) => oo.firebaseKey === oi.order_id));
+  const deletedOrderItems = openOrderItems.map((oi) => deleteOrderItem(oi.firebaseKey));
+  await Promise.all(deletedOrderItems);
+  // update item to be removed from menu
+  const removePayload = {
+    removed: true,
+    firebaseKey: itemFirebaseKey
+  };
+  await updateItem(removePayload);
+};
 
-export { searchOrders, getOrderDetails, deleteOrderAndOrderItems };
+export {
+  searchOrders,
+  getOrderDetails,
+  deleteOrderAndOrderItems,
+  removeMenuItem
+};

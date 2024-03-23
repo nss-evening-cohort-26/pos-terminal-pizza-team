@@ -1,5 +1,5 @@
 import { getAllItems, getSingleItem } from '../api/itemsData';
-import { deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
+import { removeMenuItem, deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
 import {
   getAllOrders, getClosedOrders, getOpenOrders, getSingleOrder
 } from '../api/orderData';
@@ -122,6 +122,16 @@ const domEvents = (uid) => {
     if (e.target.id.includes('admin-edit-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleItem(firebaseKey).then((item) => addItemForm(item));
+    }
+
+    if (e.target.id.includes('remove-item-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Are you sure you want to remove this item from the menu?\n(This will remove item from any open orders)')) {
+        const [, firebaseKey] = e.target.id.split('--');
+        removeMenuItem(uid, firebaseKey).then(() => {
+          getAllItems().then((items) => viewItems(items, '', uid));
+        });
+      }
     }
   });
 };
