@@ -20,7 +20,7 @@ const navEvents = (uid) => {
   });
 
   document.querySelector('#logo').addEventListener('click', () => {
-    homeScreen();
+    homeScreen(uid);
   });
 
   document.querySelector('#view-menu').addEventListener('click', () => {
