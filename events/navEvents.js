@@ -9,6 +9,8 @@ import renderToDOM from '../utils/renderToDom';
 import { searchOrders } from '../api/mergeCalls';
 import viewTalent from '../pages/talent';
 import { getAllTalents } from '../api/talentData';
+import viewRevenue from '../pages/revenue';
+import { getAllRevenue } from '../api/revenueData';
 
 const navEvents = (uid) => {
   document.querySelector('#view-orders').addEventListener('click', () => {
@@ -20,11 +22,15 @@ const navEvents = (uid) => {
   });
 
   document.querySelector('#logo').addEventListener('click', () => {
-    homeScreen();
+    homeScreen(uid);
   });
 
   document.querySelector('#view-menu').addEventListener('click', () => {
     getAllItems(uid).then((items) => viewItems(items, '', uid));
+  });
+
+  document.querySelector('#view-revenue').addEventListener('click', () => {
+    getAllRevenue(uid).then(viewRevenue);
   });
 
   document.querySelector('#search').addEventListener('keyup', (e) => {

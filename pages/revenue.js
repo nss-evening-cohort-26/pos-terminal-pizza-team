@@ -10,7 +10,7 @@ const viewRevenue = (revenueAll, startDate = 0, endDate = 0) => {
   const revenue = revenueAll.filter((rev) => Number(rev.date) > startDate && Number(rev.date) < (endDate || Date.now()));
 
   const dates = revenue.map((rev) => parseInt(rev.date, 10));
-  const milliStart = startDate || (dates.length ? Math.min(...dates) : 0);
+  const milliStart = startDate || (dates.length ? Math.min(...dates) : Date.now());
   const milliEnd = endDate || Date.now();
   const localOffsetStart = new Date(milliStart).getTimezoneOffset() * 60000;
   const localOffsetEnd = new Date(milliEnd).getTimezoneOffset() * 60000;

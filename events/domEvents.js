@@ -81,6 +81,29 @@ const domEvents = (uid) => {
       closeOrderForm(firebaseKey);
     }
 
+    if (e.target.id.includes('update-revenue-range-btn')) {
+      let startSelect = new Date(document.querySelector('#revenue-start').value).getTime();
+      let endSelect = new Date(document.querySelector('#revenue-end').value).getTime();
+      if (startSelect > endSelect) {
+        const switchSelect = endSelect;
+        endSelect = startSelect;
+        startSelect = switchSelect;
+      }
+      if (endSelect > Date.now()) {
+        const adjDate = Date.now() - new Date().getTimezoneOffset() * 60000;
+        [endSelect] = new Date(adjDate).toISOString().split('T');
+        console.warn(endSelect);
+        endSelect = new Date(endSelect).getTime();
+        if (startSelect > endSelect) {
+          startSelect = endSelect;
+        }
+      }
+      const startTime = startSelect + new Date(startSelect).getTimezoneOffset() * 60000;
+      const endTime = endSelect + new Date(endSelect).getTimezoneOffset() * 60000 + 86399999;
+      console.warn(startTime, endTime);
+      getAllRevenue(uid).then((revenue) => viewRevenue(revenue, startTime, endTime));
+    }
+
     if (e.target.id.includes('view-open-orders')) {
       getOpenOrders(uid).then((response) => {
         if (response.length > 0) {
