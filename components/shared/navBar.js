@@ -21,6 +21,9 @@ const navBar = () => {
             <li class="nav-item">
               <a class="nav-link" href="#" id="view-menu">Menu</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" id="view-event">Events</a>
+            </li>
           </ul>
           <span class="navbar-text">
           <input

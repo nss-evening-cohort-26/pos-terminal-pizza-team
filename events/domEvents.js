@@ -11,6 +11,9 @@ import { viewOrders, noOrders } from '../pages/viewOrders';
 import { deleteOrderItem, createOrderItem, updateOrderItem } from '../api/orderItemsData';
 import { getAllRevenue } from '../api/revenueData';
 import viewRevenue from '../pages/revenue';
+import addTalentForm from '../components/forms/addTalentForm';
+import { deleteTalent, getAllTalents, getSingletalent } from '../api/talentData';
+import viewTalent from '../pages/talent';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -89,6 +92,26 @@ const domEvents = (uid) => {
 
     if (e.target.id.includes('view-closed-orders')) {
       getClosedOrders(uid).then(viewOrders);
+    }
+
+    if (e.target.id.includes('admin-create-talent')) {
+      addTalentForm();
+    }
+
+    if (e.target.id.includes('admin-edit-talent-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      console.warn(firebaseKey);
+      getSingletalent(firebaseKey).then((talent) => addTalentForm(talent));
+    }
+
+    if (e.target.id.includes('admin-delete-talent-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Do you want to cancel this event?')) {
+        const [, firebaseKey] = e.target.id.split('--');
+        deleteTalent(firebaseKey).then(() => {
+          getAllTalents().then((talent) => viewTalent(talent, '', uid));
+        });
+      }
     }
   });
 };

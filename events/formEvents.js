@@ -1,7 +1,9 @@
 import { getOrderDetails } from '../api/mergeCalls';
 import { createOrder, getAllOrders, updateOrder } from '../api/orderData';
 import { createRevenue, updateRevenue } from '../api/revenueData';
+import { createTalent, getAllTalents, updateTalent } from '../api/talentData';
 import viewOrderDetails from '../pages/orderDetails';
+import viewTalent from '../pages/talent';
 import { viewOrders } from '../pages/viewOrders';
 
 const formEvents = (uid) => {
@@ -77,6 +79,36 @@ const formEvents = (uid) => {
             getOrderDetails(orderFirebaseKey).then(viewOrderDetails)
           );
         });
+      });
+    }
+    // submit new talent form data/payload
+    if (e.target.id.includes('create-talent-btn')) {
+      const payload = {
+        bandName: document.querySelector('#talentName').value,
+        genre: document.querySelector('#genre').value,
+        date: document.querySelector('#dateOfPreformance').value,
+        virtual: document.querySelector('#venueLocation').value
+      };
+      createTalent(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+
+        updateTalent(patchPayload).then(() => {
+          getAllTalents().then((talent) => viewTalent(talent, '', uid));
+        });
+      });
+    }
+
+    if (e.target.id.includes('update-talent-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        bandName: document.querySelector('#talentName').value,
+        genre: document.querySelector('#genre').value,
+        date: document.querySelector('#dateOfPreformance').value,
+        virtual: document.querySelector('#venueLocation').value,
+        firebaseKey
+      };
+      updateTalent(payload).then(() => {
+        getAllTalents().then((talent) => viewTalent(talent, '', uid));
       });
     }
   });
