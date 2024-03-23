@@ -18,7 +18,7 @@ const viewItems = (array, orderFirebaseKey = '', uid) => {
         ${adminCheck(uid) ? `
         <div>
           <button class="btn admin-edit admin-only-btn" id="admin-edit-btn--${item.firebaseKey}">Edit</button>
-          <button class="btn admin-delete admin-only-btn" id="admin-delete-btn--${item.firebaseKey}">Delete</button>
+          <button class="btn admin-delete admin-only-btn" id="remove-item-btn--${item.firebaseKey}">Remove</button>
         </div>
         ` : ''}
       </div>
