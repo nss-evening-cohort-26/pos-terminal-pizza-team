@@ -7,6 +7,8 @@ import { viewOrders } from '../pages/viewOrders';
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 import { searchOrders } from '../api/mergeCalls';
+import viewRevenue from '../pages/revenue';
+import { getAllRevenue } from '../api/revenueData';
 
 const navEvents = (uid) => {
   document.querySelector('#view-orders').addEventListener('click', () => {
@@ -23,6 +25,10 @@ const navEvents = (uid) => {
 
   document.querySelector('#view-menu').addEventListener('click', () => {
     getAllItems(uid).then(viewItems);
+  });
+
+  document.querySelector('#view-revenue').addEventListener('click', () => {
+    getAllRevenue(uid).then(viewRevenue);
   });
 
   document.querySelector('#search').addEventListener('keyup', (e) => {
