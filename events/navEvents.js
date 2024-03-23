@@ -26,7 +26,7 @@ const navEvents = (uid) => {
   });
 
   document.querySelector('#view-menu').addEventListener('click', () => {
-    getAllItems(uid).then((items) => viewItems(items, '', uid));
+    getAllItems().then((items) => viewItems(items, '', uid));
   });
 
   document.querySelector('#view-revenue').addEventListener('click', () => {

@@ -50,10 +50,11 @@ const formEvents = (uid) => {
     if (e.target.id.includes('create-item-btn')) {
       const payload = {
         name: document.querySelector('#itemName').value,
-        price: document.querySelector('#itemPrice').value,
+        price: Number(document.querySelector('#itemPrice').value).toFixed(2),
         image: document.querySelector('#itemImage').value,
         description: document.querySelector('#itemDescription').value,
         sale: document.querySelector('#itemSale').checked,
+        removed: false,
         uid
       };
 
@@ -61,7 +62,7 @@ const formEvents = (uid) => {
         const patchPayload = { firebaseKey: name };
 
         updateItem(patchPayload).then(() => {
-          getAllItems(uid).then((items) => viewItems(items, '', uid));
+          getAllItems().then((items) => viewItems(items, '', uid));
         });
       });
     }
@@ -70,15 +71,14 @@ const formEvents = (uid) => {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
         name: document.querySelector('#itemName').value,
-        price: document.querySelector('#itemPrice').value,
+        price: Number(document.querySelector('#itemPrice').value).toFixed(2),
         image: document.querySelector('#itemImage').value,
         description: document.querySelector('#itemDescription').value,
         sale: document.querySelector('#itemSale').checked,
-        uid,
         firebaseKey
       };
       updateItem(payload).then(() => {
-        getAllItems(uid).then((items) => viewItems(items, '', uid));
+        getAllItems().then((items) => viewItems(items, '', uid));
       });
     }
 

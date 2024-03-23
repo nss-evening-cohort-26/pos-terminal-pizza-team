@@ -6,6 +6,7 @@
     "description": "Indulge in the timeless classic that is the Cheese Pizza. A crispy yet pillowy crust, generously slathered with tangy tomato sauce, and adorned with a blanket of gooey, melted mozzarella cheese. Every bite is a symphony of flavors, combining the richness of cheese with the comforting familiarity of traditional pizza.",
     "image": "https://i.imgur.com/KswL75z.png",
     "sale": true,
+    "removed": false,
     "uid": "1DUcBaBVB4hjzDIr3g9Bg945GYC2"
   },
   "-Nsdi9TrHb4PST617tvw": {
@@ -15,6 +16,7 @@
     "description": "Elevate your pizza experience with the Veggie Pizza, a vibrant medley of fresh vegetables atop a perfectly baked crust. From colorful bell peppers to savory mushrooms, crisp onions, and juicy tomatoes, each bite bursts with wholesome goodness. Paired with a hint of aromatic herbs and a layer of zesty marinara sauce, this pizza is a celebration of garden-fresh flavors.",
     "image": "https://i.imgur.com/DAar0aQ.png",
     "sale": true,
+    "removed": false,
     "uid": "MOeFbnKz2rgLgh2M4PldNnmCe2d2"
   },
   "-Nsdi9TrHb4PST617tvx": {
@@ -24,6 +26,7 @@
     "description": "Prepare your taste buds for a flavor adventure with the Funky Pizza. This unconventional pie breaks the mold with its eclectic toppings and bold combinations. Picture a canvas of dough adorned with exotic ingredients like spicy jalapeños, creamy avocado, tangy pineapple, and smoky bacon, all harmonizing to create a tantalizing fusion of tastes. Embrace the unexpected and embark on a culinary journey with every slice.",
     "image": "https://i.imgur.com/LZn2HnB.png",
     "sale": false,
+    "removed": false,
     "uid": "1DUcBaBVB4hjzDIr3g9Bg945GYC2"
   },
   "-Nsdi9TsCdZhnvYwlCW1": {
@@ -33,6 +36,7 @@
     "description": "Get ready to fire up your palate with our irresistible Hot Wangs. Crispy on the outside, tender on the inside, and drenched in a fiery sauce that packs a punch, these wangs are not for the faint of heart. Whether you're a fan of buffalo-style heat or crave a spicy kick with every bite, our Hot Wangs deliver the perfect balance of flavor and heat that will leave you reaching for more.",
     "image": "https://i.imgur.com/I0BULpW.png",
     "sale": false,
+    "removed": false,
     "uid": "0C47yYhxJpgg1unWvvnYdi1Qn893"
   },
   "-Nsdi9TsCdZhnvYwlCW2": {
@@ -42,6 +46,7 @@
     "description": "Treat yourself to a taste of Southern comfort with our mouthwatering BBQ Wangs. Juicy and succulent chicken wangs smothered in a sweet and smoky barbecue sauce, each bite is a symphony of flavors that will transport you to a backyard cookout on a warm summer day. Whether enjoyed as a snack or a main course, our BBQ Wangs are sure to satisfy your cravings for hearty, finger-licking goodness.",
     "image": "https://i.imgur.com/aDA07qP.png",
     "sale": false,
+    "removed": false,
     "uid": "Wc0qtbsUx1SmDEQ7UX7LZAQCSeO2"
   },
   "-Nsdi9TsCdZhnvYwlCW5": {
@@ -51,6 +56,7 @@
     "description": "For those who prefer their wangs without the fuss, our Naked Wangs are the perfect choice. Crispy and golden-brown, these wangs are seasoned to perfection and served without any sauce, allowing the natural flavor of the chicken to shine through. Whether you dip them in your favorite sauce or savor them as they are, our Naked Wangs are a deliciously simple pleasure that never disappoints.",
     "image": "https://i.imgur.com/8FrvvGC.png",
     "sale": true,
+    "removed": false,
     "uid": "MOeFbnKz2rgLgh2M4PldNnmCe2d2"
   },
   "-Nsdi9TsCdZhnvYwlCW6": {
@@ -60,6 +66,7 @@
     "description": "Experience the bold and fiery flavors of the South with our Nashville Hot Wangs. Inspired by the iconic dish from Music City, these wangs are coated in a spicy blend of cayenne pepper and spices, then fried to crispy perfection. Served with a side of cooling ranch dressing and pickles to balance the heat, our Nashville Hot Wangs are a culinary adventure that will leave you craving more.",
     "image": "https://i.imgur.com/1E4kfur.png",
     "sale": false,
+    "removed": false,
     "uid": "0C47yYhxJpgg1unWvvnYdi1Qn893"
   },
   "-Nsdi9TsCdZhnvYwlCW7": {
@@ -69,6 +76,7 @@
     "description": "Quench your thirst and complement your meal with our refreshing selection of beverages. From ice-cold sodas and freshly brewed iced tea to flavorful fruit juices and frosty milkshakes, we offer a variety of options to satisfy every palate. Whether you're looking for something sweet, savory, or simply refreshing, our drinks are the perfect accompaniment to your dining experience.",
     "image": "https://i.imgur.com/jzqGr3K.png",
     "sale": true,
+    "removed": false,
     "uid": "Wc0qtbsUx1SmDEQ7UX7LZAQCSeO2"
   }
 }
