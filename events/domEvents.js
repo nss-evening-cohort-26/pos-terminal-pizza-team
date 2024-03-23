@@ -1,4 +1,4 @@
-import { getAllItems } from '../api/itemsData';
+import { getAllItems, getSingleItem } from '../api/itemsData';
 import { deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
 import {
   getAllOrders, getClosedOrders, getOpenOrders, getSingleOrder
@@ -11,6 +11,7 @@ import { viewOrders, noOrders } from '../pages/viewOrders';
 import { deleteOrderItem, createOrderItem, updateOrderItem } from '../api/orderItemsData';
 import { getAllRevenue } from '../api/revenueData';
 import viewRevenue from '../pages/revenue';
+import addItemForm from '../components/forms/addItemForm';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -89,6 +90,15 @@ const domEvents = (uid) => {
 
     if (e.target.id.includes('view-closed-orders')) {
       getClosedOrders(uid).then(viewOrders);
+    }
+    // admin create menu item button
+    if (e.target.id.includes('admin-create-item')) {
+      addItemForm();
+    }
+
+    if (e.target.id.includes('admin-edit-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleItem(firebaseKey).then((item) => addItemForm(item));
     }
   });
 };

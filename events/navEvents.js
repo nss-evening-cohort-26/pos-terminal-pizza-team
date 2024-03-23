@@ -22,7 +22,7 @@ const navEvents = (uid) => {
   });
 
   document.querySelector('#view-menu').addEventListener('click', () => {
-    getAllItems(uid).then(viewItems);
+    getAllItems(uid).then((items) => viewItems(items, '', uid));
   });
 
   document.querySelector('#search').addEventListener('keyup', (e) => {
