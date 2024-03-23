@@ -23,6 +23,9 @@ const navBar = (uid) => {
               <a class="nav-link" href="#" id="view-menu">Menu</a>
             </li>
             <li class="nav-item">
+            <a class="nav-link" href="#" id="view-event">Events</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#" id="view-revenue">${adminCheck(uid) ? 'View Revenue' : 'View Receipts'}</a>
             </li>
           </ul>
