@@ -102,10 +102,13 @@ const domEvents = (uid) => {
     }
 
     if (e.target.id.includes('admin-delete-btn')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      deleteMenuItem(firebaseKey).then(() => {
-        getAllItems().then((items) => viewItems(items, '', uid));
-      });
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Are you sure you want to delete this item from the menu?')) {
+        const [, firebaseKey] = e.target.id.split('--');
+        deleteMenuItem(firebaseKey).then(() => {
+          getAllItems().then((items) => viewItems(items, '', uid));
+        });
+      }
     }
   });
 };
