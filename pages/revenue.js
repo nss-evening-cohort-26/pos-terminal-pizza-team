@@ -14,7 +14,6 @@ const viewRevenue = (revenueAll, startDate = 0, endDate = 0) => {
   const milliEnd = endDate || Date.now();
   const localOffsetStart = new Date(milliStart).getTimezoneOffset() * 60000;
   const localOffsetEnd = new Date(milliEnd).getTimezoneOffset() * 60000;
-  console.warn(revenue, localOffsetStart, localOffsetEnd);
 
   const cashData = revenue.filter((rev) => rev.payment_type === 'cash').length;
   const creditData = revenue.filter((rev) => rev.payment_type === 'credit').length;
