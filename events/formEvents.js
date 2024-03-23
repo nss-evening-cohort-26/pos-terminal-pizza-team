@@ -1,8 +1,12 @@
+import { createItem, getAllItems, updateItem } from '../api/itemsData';
 import { getOrderDetails } from '../api/mergeCalls';
 import { createOrder, getAllOrders, updateOrder } from '../api/orderData';
 import { createRevenue, updateRevenue } from '../api/revenueData';
+import { createTalent, getAllTalents, updateTalent } from '../api/talentData';
+import viewItems from '../pages/menu';
 import viewOrderDetails from '../pages/orderDetails';
-import viewOrders from '../pages/viewOrders';
+import viewTalent from '../pages/talent';
+import { viewOrders } from '../pages/viewOrders';
 
 const formEvents = (uid) => {
   document.querySelector('#form-container').addEventListener('submit', (e) => {
@@ -42,12 +46,40 @@ const formEvents = (uid) => {
       });
     }
 
-    if (e.target.id.includes('edit-item')) {
-      console.warn('hey');
-    }
+    // create a menu item for admin only
+    if (e.target.id.includes('create-item-btn')) {
+      const payload = {
+        name: document.querySelector('#itemName').value,
+        price: Number(document.querySelector('#itemPrice').value).toFixed(2),
+        image: document.querySelector('#itemImage').value,
+        description: document.querySelector('#itemDescription').value,
+        sale: document.querySelector('#itemSale').checked,
+        removed: false,
+        uid
+      };
 
+      createItem(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+
+        updateItem(patchPayload).then(() => {
+          getAllItems().then((items) => viewItems(items, '', uid));
+        });
+      });
+    }
+    // update button for admin, on item edit form
     if (e.target.id.includes('update-item-btn')) {
-      console.warn('Item updated!');
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        name: document.querySelector('#itemName').value,
+        price: Number(document.querySelector('#itemPrice').value).toFixed(2),
+        image: document.querySelector('#itemImage').value,
+        description: document.querySelector('#itemDescription').value,
+        sale: document.querySelector('#itemSale').checked,
+        firebaseKey
+      };
+      updateItem(payload).then(() => {
+        getAllItems().then((items) => viewItems(items, '', uid));
+      });
     }
 
     if (e.target.id.includes('update-order-item-btn')) {
@@ -55,7 +87,6 @@ const formEvents = (uid) => {
     }
 
     if (e.target.id.includes('close-order-btn')) {
-      console.warn('Order closed!');
       const [, orderFirebaseKey] = e.target.id.split('--');
       getOrderDetails(orderFirebaseKey).then((order) => {
         const tip = Number(document.querySelector('#tipAmount').value);
@@ -69,7 +100,6 @@ const formEvents = (uid) => {
           date: Date.now(),
           uid
         };
-        console.warn(payload);
         createRevenue(payload).then(({ name }) => {
           const revenuePatchPayload = { firebaseKey: name };
           updateRevenue(revenuePatchPayload);
@@ -79,6 +109,36 @@ const formEvents = (uid) => {
             getOrderDetails(orderFirebaseKey).then(viewOrderDetails)
           );
         });
+      });
+    }
+    // submit new talent form data/payload
+    if (e.target.id.includes('create-talent-btn')) {
+      const payload = {
+        bandName: document.querySelector('#talentName').value,
+        genre: document.querySelector('#genre').value,
+        date: document.querySelector('#dateOfPreformance').value,
+        virtual: document.querySelector('#venueLocation').value
+      };
+      createTalent(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+
+        updateTalent(patchPayload).then(() => {
+          getAllTalents().then((talent) => viewTalent(talent, '', uid));
+        });
+      });
+    }
+
+    if (e.target.id.includes('update-talent-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        bandName: document.querySelector('#talentName').value,
+        genre: document.querySelector('#genre').value,
+        date: document.querySelector('#dateOfPreformance').value,
+        virtual: document.querySelector('#venueLocation').value,
+        firebaseKey
+      };
+      updateTalent(payload).then(() => {
+        getAllTalents().then((talent) => viewTalent(talent, '', uid));
       });
     }
   });

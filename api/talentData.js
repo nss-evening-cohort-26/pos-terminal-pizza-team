@@ -2,8 +2,8 @@ import { client } from '../utils/client';
 
 const endpoint = client.databaseURL;
 
-const getAllItems = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/item.json`, {
+const getAllTalents = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/talent.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -20,8 +20,8 @@ const getAllItems = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/item/${firebaseKey}.json`, {
+const getSingletalent = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/talent/${firebaseKey}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -32,8 +32,8 @@ const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const createItem = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/item.json`, {
+const createTalent = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/talent.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -45,8 +45,8 @@ const createItem = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const updateItem = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/item/${payload.firebaseKey}.json`, {
+const updateTalent = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/talent/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
@@ -58,8 +58,8 @@ const updateItem = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/item/${firebaseKey}.json`, {
+const deleteTalent = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/talent/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
@@ -71,9 +71,9 @@ const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 export {
-  getAllItems,
-  getSingleItem,
-  createItem,
-  updateItem,
-  deleteItem
+  getAllTalents,
+  updateTalent,
+  getSingletalent,
+  deleteTalent,
+  createTalent
 };

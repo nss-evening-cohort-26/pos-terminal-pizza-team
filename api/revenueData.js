@@ -1,9 +1,10 @@
-import client from '../utils/client';
+import { adminCheck } from '../utils/auth';
+import { client } from '../utils/client';
 
 const endpoint = client.databaseURL;
 
 const getAllRevenue = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/revenue.json?orderBy="uid"&equalTo="${uid}"`, {
+  fetch(`${endpoint}/revenue.json${adminCheck(uid) ? '' : `?orderBy="uid"&equalTo="${uid}"`}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
