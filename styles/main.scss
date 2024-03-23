@@ -171,6 +171,12 @@ body {
 
 .rev-details {
   margin-top: 40px;
+  input, p {
+    display: inline-block;
+  }
+  a {
+    display: block;
+  }
 }
 
 .details {
@@ -184,4 +190,9 @@ body {
 
 .badge {
   background-color: rgb(213, 65, 65) !important;
+}
+
+#myChart {
+  margin-left: auto;
+  margin-right: auto;
 }

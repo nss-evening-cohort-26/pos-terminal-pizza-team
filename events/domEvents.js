@@ -1,4 +1,4 @@
-import { getAllItems } from '../api/itemsData';
+import { getAllItems, getSingleItem } from '../api/itemsData';
 import { deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
 import {
   getAllOrders, getClosedOrders, getOpenOrders, getSingleOrder
@@ -14,6 +14,7 @@ import viewRevenue from '../pages/revenue';
 import addTalentForm from '../components/forms/addTalentForm';
 import { deleteTalent, getAllTalents, getSingletalent } from '../api/talentData';
 import viewTalent from '../pages/talent';
+import addItemForm from '../components/forms/addItemForm';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -112,6 +113,15 @@ const domEvents = (uid) => {
           getAllTalents().then((talent) => viewTalent(talent, '', uid));
         });
       }
+    }
+    // admin create menu item button
+    if (e.target.id.includes('admin-create-item')) {
+      addItemForm();
+    }
+
+    if (e.target.id.includes('admin-edit-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleItem(firebaseKey).then((item) => addItemForm(item));
     }
   });
 };

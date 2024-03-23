@@ -31,6 +31,7 @@
     "@fortawesome/fontawesome-free": "5.14.0",
     "@popperjs/core": "^2.9.3",
     "bootstrap": "^5.1.0",
+    "chart.js": "^4.4.2",
     "dotenv": "^10.0.0",
     "firebase": "^8.2.0",
     "sass": "^1.51.0"
