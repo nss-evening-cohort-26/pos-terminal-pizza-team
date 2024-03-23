@@ -7,14 +7,14 @@ const viewTalent = (array, orderFirebaseKey = '', uid) => {
 
   let domString = '';
 
-  // array.sort((a, b) => a.date - b.date);
+  array.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   array.forEach((item) => {
     domString += `
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title">${item.bandName}</h5>
-        <p class="description">${item.genre}</p>
+        <h5 class="card-title">${item.bandName} </h5>
+        <p class="description">Genre: ${item.genre}</p>
         <p class="description">${item.virtual} performance on: ${item.date}</p>
         ${orderFirebaseKey ? `<a href="#" class="card-link" id="create-talent-btn..${item.firebaseKey}..${orderFirebaseKey}">Create New Event</a>` : ''}
         ${adminCheck(uid) ? `
@@ -30,7 +30,7 @@ const viewTalent = (array, orderFirebaseKey = '', uid) => {
   if (adminCheck(uid)) {
     let btnString = '';
     btnString = ` 
-    <div> <button class="btn admin-add-btn create-order" id="admin-create-talent"> New Talent Entry </button> </div> `;
+    <div> <button class="btn admin-add-btn create-order homescreen-btns" id="admin-create-talent"> New Talent Entry </button> </div> `;
 
     renderToDOM('#add-button', btnString);
   }
