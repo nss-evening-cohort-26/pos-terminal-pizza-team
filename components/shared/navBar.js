@@ -1,6 +1,7 @@
 import renderToDOM from '../../utils/renderToDom';
+import { adminCheck } from '../../utils/auth';
 
-const navBar = () => {
+const navBar = (uid) => {
   const domString = `
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
     <div class="container-fluid">
@@ -20,6 +21,9 @@ const navBar = () => {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" id="view-menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="view-revenue">${adminCheck(uid) ? 'View Revenue' : 'View Receipts'}</a>
             </li>
           </ul>
           <span class="navbar-text">
