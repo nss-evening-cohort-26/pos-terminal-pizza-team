@@ -1,5 +1,5 @@
 import { getAllItems, getSingleItem } from '../api/itemsData';
-import { deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
+import { deleteMenuItem, deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
 import {
   getAllOrders, getClosedOrders, getOpenOrders, getSingleOrder
 } from '../api/orderData';
@@ -99,6 +99,13 @@ const domEvents = (uid) => {
     if (e.target.id.includes('admin-edit-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleItem(firebaseKey).then((item) => addItemForm(item));
+    }
+
+    if (e.target.id.includes('admin-delete-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      deleteMenuItem(firebaseKey).then(() => {
+        getAllItems().then((items) => viewItems(items, '', uid));
+      });
     }
   });
 };

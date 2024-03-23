@@ -1,6 +1,6 @@
 import { getAllOrders, deleteOrder, getSingleOrder } from './orderData';
-import { deleteOrderItem, getAllOrderItems } from './orderItemsData';
-import { getSingleItem } from './itemsData';
+import { deleteOrderItem, getAllOrderItems, getOrderItemsByItem } from './orderItemsData';
+import { deleteItem, getSingleItem } from './itemsData';
 import { deleteRevenue, getRevenueByOrder } from './revenueData';
 
 const getOrderDetails = async (orderFirebaseKey) => {
@@ -44,5 +44,17 @@ const searchOrders = async (uid, searchValue) => {
   ));
   return filteredOrders;
 };
+const deleteMenuItem = async (itemFirebaseKey) => {
+  // await deleteItem(itemFirebaseKey);
+  const orderItems = await getOrderItemsByItem(itemFirebaseKey);
+  const deletedOrderItems = orderItems.map((oi) => deleteOrderItem(oi.firebaseKey));
+  await Promise.all(deletedOrderItems);
+  await deleteItem(itemFirebaseKey);
+};
 
-export { searchOrders, getOrderDetails, deleteOrderAndOrderItems };
+export {
+  searchOrders,
+  getOrderDetails,
+  deleteOrderAndOrderItems,
+  deleteMenuItem
+};
