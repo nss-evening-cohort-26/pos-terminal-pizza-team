@@ -9,7 +9,7 @@ import formEvents from '../events/formEvents';
 const startApp = (uid) => {
   domBuilder(uid);
   homeScreen(uid);
-  navBar();
+  navBar(uid);
   logoutButton();
   domEvents(uid);
   navEvents(uid);
