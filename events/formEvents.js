@@ -1,6 +1,8 @@
+import { createItem, getAllItems, updateItem } from '../api/itemsData';
 import { getOrderDetails } from '../api/mergeCalls';
 import { createOrder, getAllOrders, updateOrder } from '../api/orderData';
 import { createRevenue, updateRevenue } from '../api/revenueData';
+import viewItems from '../pages/menu';
 import viewOrderDetails from '../pages/orderDetails';
 import { viewOrders } from '../pages/viewOrders';
 
@@ -42,12 +44,40 @@ const formEvents = (uid) => {
       });
     }
 
-    if (e.target.id.includes('edit-item')) {
-      console.warn('hey');
-    }
+    // create a menu item for admin only
+    if (e.target.id.includes('create-item-btn')) {
+      const payload = {
+        name: document.querySelector('#itemName').value,
+        price: document.querySelector('#itemPrice').value,
+        image: document.querySelector('#itemImage').value,
+        description: document.querySelector('#itemDescription').value,
+        sale: document.querySelector('#itemSale').checked,
+        uid
+      };
 
+      createItem(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+
+        updateItem(patchPayload).then(() => {
+          getAllItems(uid).then((items) => viewItems(items, '', uid));
+        });
+      });
+    }
+    // update button for admin, on item edit form
     if (e.target.id.includes('update-item-btn')) {
-      console.warn('Item updated!');
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        name: document.querySelector('#itemName').value,
+        price: document.querySelector('#itemPrice').value,
+        image: document.querySelector('#itemImage').value,
+        description: document.querySelector('#itemDescription').value,
+        sale: document.querySelector('#itemSale').checked,
+        uid,
+        firebaseKey
+      };
+      updateItem(payload).then(() => {
+        getAllItems(uid).then((items) => viewItems(items, '', uid));
+      });
     }
 
     if (e.target.id.includes('update-order-item-btn')) {
