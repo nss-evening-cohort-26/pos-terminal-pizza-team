@@ -5,8 +5,10 @@ import renderToDOM from '../utils/renderToDom';
 const viewItems = (array, orderFirebaseKey = '', uid) => {
   clearDom();
 
+  const activeItems = array.filter((item) => item.removed === false);
+
   let domString = '';
-  array.forEach((item) => {
+  activeItems.forEach((item) => {
     domString += `
     <div class="card" style="width: 18rem;">
       <div class="card-body">
@@ -28,7 +30,7 @@ const viewItems = (array, orderFirebaseKey = '', uid) => {
   if (adminCheck(uid)) {
     let btnString = '';
     btnString = ` 
-    <div> <button class="btn admin-add-btn create-order" id="admin-create-item"> create a new item </button> </div> `;
+    <div> <button class="btn admin-add-btn create-order" id="admin-create-item">Create New Item</button> </div> `;
 
     renderToDOM('#add-button', btnString);
   }

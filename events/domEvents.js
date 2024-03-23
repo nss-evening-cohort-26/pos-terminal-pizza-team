@@ -1,5 +1,5 @@
 import { getAllItems, getSingleItem } from '../api/itemsData';
-import { deleteMenuItem, deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
+import { removeMenuItem, deleteOrderAndOrderItems, getOrderDetails } from '../api/mergeCalls';
 import {
   getAllOrders, getClosedOrders, getOpenOrders, getSingleOrder
 } from '../api/orderData';
@@ -78,6 +78,29 @@ const domEvents = (uid) => {
       closeOrderForm(firebaseKey);
     }
 
+    if (e.target.id.includes('update-revenue-range-btn')) {
+      let startSelect = new Date(document.querySelector('#revenue-start').value).getTime();
+      let endSelect = new Date(document.querySelector('#revenue-end').value).getTime();
+      if (startSelect > endSelect) {
+        const switchSelect = endSelect;
+        endSelect = startSelect;
+        startSelect = switchSelect;
+      }
+      if (endSelect > Date.now()) {
+        const adjDate = Date.now() - new Date().getTimezoneOffset() * 60000;
+        [endSelect] = new Date(adjDate).toISOString().split('T');
+        console.warn(endSelect);
+        endSelect = new Date(endSelect).getTime();
+        if (startSelect > endSelect) {
+          startSelect = endSelect;
+        }
+      }
+      const startTime = startSelect + new Date(startSelect).getTimezoneOffset() * 60000;
+      const endTime = endSelect + new Date(endSelect).getTimezoneOffset() * 60000 + 86399999;
+      console.warn(startTime, endTime);
+      getAllRevenue(uid).then((revenue) => viewRevenue(revenue, startTime, endTime));
+    }
+
     if (e.target.id.includes('view-open-orders')) {
       getOpenOrders(uid).then((response) => {
         if (response.length > 0) {
@@ -103,10 +126,10 @@ const domEvents = (uid) => {
 
     if (e.target.id.includes('remove-item-btn')) {
       // eslint-disable-next-line no-alert
-      if (window.confirm('Are you sure you want to delete this item from the menu?')) {
+      if (window.confirm('Are you sure you want to remove this item from the menu?\n(This will remove item from any open orders)')) {
         const [, firebaseKey] = e.target.id.split('--');
-        deleteMenuItem(uid, firebaseKey).then(() => {
-          getAllItems();
+        removeMenuItem(uid, firebaseKey).then(() => {
+          getAllItems().then((items) => viewItems(items, '', uid));
         });
       }
     }
