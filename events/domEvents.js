@@ -16,7 +16,7 @@ import addItemForm from '../components/forms/addItemForm';
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('view-revenue-btn')) {
-      getAllRevenue(uid).then(viewRevenue);
+      getAllRevenue(uid).then((revs) => viewRevenue(revs, uid));
     }
 
     if (e.target.id.includes('view-orders-btn')) {
@@ -98,7 +98,7 @@ const domEvents = (uid) => {
       const startTime = startSelect + new Date(startSelect).getTimezoneOffset() * 60000;
       const endTime = endSelect + new Date(endSelect).getTimezoneOffset() * 60000 + 86399999;
       console.warn(startTime, endTime);
-      getAllRevenue(uid).then((revenue) => viewRevenue(revenue, startTime, endTime));
+      getAllRevenue(uid).then((revenue) => viewRevenue(revenue, uid, startTime, endTime));
     }
 
     if (e.target.id.includes('view-open-orders')) {

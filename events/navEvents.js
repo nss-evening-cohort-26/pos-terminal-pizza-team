@@ -28,7 +28,7 @@ const navEvents = (uid) => {
   });
 
   document.querySelector('#view-revenue').addEventListener('click', () => {
-    getAllRevenue(uid).then(viewRevenue);
+    getAllRevenue(uid).then((revs) => viewRevenue(revs, uid));
   });
 
   document.querySelector('#search').addEventListener('keyup', (e) => {
